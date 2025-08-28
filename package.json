@@ -1,0 +1,37 @@
+{
+  "name": "sophisticated-crypto-bank",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.1",
+    "framer-motion": "^11.13.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "tailwind-merge": "^2.5.4",
+    "@radix-ui/react-slot": "^1.1.1",
+    "prisma": "^6.1.0",
+    "@prisma/client": "^6.1.0",
+    "swr": "^2.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "eslint": "^8",
+    "eslint-config-next": "15.3.2",
+    "postcss": "^8",
+    "autoprefixer": "^10.0.1"
+  }
+}
