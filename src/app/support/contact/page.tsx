@@ -42,7 +42,7 @@ const contactMethods = [
     description: "Send us your detailed questions",
     icon: Mail,
     availability: "24/7 Available",
-    response: "< 4 hours",
+    response: "&lt; 4 hours",
     color: "from-purple-500 to-violet-600",
     action: "Send Email"
   }
