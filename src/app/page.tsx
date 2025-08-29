@@ -6,6 +6,7 @@ import { HeroSection } from '@/components/hero-section'
 import { ServicesShowcase } from '@/components/services-showcase'
 import { TradingInterface } from '@/components/trading-interface'
 import { Testimonials } from '@/components/testimonials'
+import { AIChatbot } from '@/components/ai-chatbot'
 import { motion } from 'framer-motion'
 
 export default function Home() {
