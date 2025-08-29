@@ -133,18 +133,26 @@ export function Navigation() {
                 whileTap={{ scale: 0.95 }}
               >
                 {/* Logo Container with premium design */}
-                <div className="professional-logo-icon">
-                  <Building2 className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 rounded-xl flex items-center justify-center professional-shadow">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                      stroke="white"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
                 {/* Glow Effect */}
                 <div className="absolute inset-0 w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition-opacity"/>
               </motion.div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold banking-gradient-text">
+                <span className="text-2xl font-bold text-banking bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                   CoinBank
                 </span>
                 <span className="text-xs text-cyan-400/60 font-medium -mt-1">
-                  Professional Banking
+                  Digital Banking
                 </span>
               </div>
             </Link>
