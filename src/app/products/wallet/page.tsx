@@ -184,7 +184,7 @@ export default function WalletPage() {
                 <div className="grid grid-cols-2 gap-3">
                   {[
                     { icon: Send, label: 'Send', color: 'from-blue-500 to-indigo-600' },
-                    { icon: Receive, label: 'Receive', color: 'from-emerald-500 to-green-600' },
+                    { icon: Receipt, label: 'Receive', color: 'from-emerald-500 to-green-600' },
                     { icon: QrCode, label: 'QR Pay', color: 'from-purple-500 to-violet-600' },
                     { icon: CreditCard, label: 'Buy Crypto', color: 'from-orange-500 to-red-600' }
                   ].map((action, index) => (
