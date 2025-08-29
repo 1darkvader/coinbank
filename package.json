@@ -21,7 +21,6 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "jsonwebtoken": "^9.0.2",
-
     "next": "^15.3.2",
     "next-auth": "^4.24.11",
     "prisma": "^6.15.0",
