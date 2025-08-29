@@ -47,11 +47,109 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    background: linear-gradient(135deg, hsl(215, 28%, 8%) 0%, hsl(220, 30%, 10%) 50%, hsl(215, 28%, 8%) 100%);
-    min-height: 100vh;
+    @apply bg-background text-foreground;
   }
+}
+
+/* Professional Banking Design System */
+.professional-bg {
+  background: var(--banking-dark);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+.banking-card {
+  background: var(--banking-card);
+  border: 1px solid var(--banking-border);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.professional-input {
+  background: rgba(26, 31, 46, 0.5);
+  border: 1px solid var(--banking-border);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.professional-input:focus {
+  border-color: var(--banking-cyan);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+  background: rgba(26, 31, 46, 0.8);
+}
+
+.professional-button {
+  background: linear-gradient(135deg, var(--banking-cyan) 0%, #0891B2 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: white;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 4px 15px rgba(6, 182, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.professional-button:hover {
+  background: linear-gradient(135deg, #0891B2 0%, var(--banking-cyan) 100%);
+  box-shadow: 
+    0 6px 20px rgba(6, 182, 212, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.professional-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 10px rgba(6, 182, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.professional-nav-button {
+  background: rgba(26, 31, 46, 0.6);
+  border: 1px solid var(--banking-border);
+  color: #FFFFFF;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.professional-nav-button:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: var(--banking-cyan);
+  color: var(--banking-cyan);
+}
+
+.banking-gradient-text {
+  background: linear-gradient(135deg, var(--banking-cyan) 0%, #0891B2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.professional-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.professional-logo-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--banking-cyan) 0%, #0891B2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 25px rgba(6, 182, 212, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 @layer components {
