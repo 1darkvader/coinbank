@@ -30,6 +30,16 @@ export default function SignInPage() {
   
   const router = useRouter()
 
+  const testAccounts = [
+    { email: 'alex@coinbank.com', password: 'password123', name: 'Alex Johnson' },
+    { email: 'demo@coinbank.com', password: 'demo123', name: 'Demo User' }, 
+    { email: 'test@coinbank.com', password: 'test123', name: 'Test User' }
+  ]
+
+  const fillTestAccount = (email: string, password: string) => {
+    setFormData({ username: email, password: password })
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
