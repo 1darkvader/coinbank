@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
         name: name || 'New Portfolio',
         totalValue,
         assets: {
-          create: assets?.map((asset: any) => ({
+          create: assets?.map((asset: { symbol: string; name: string; amount: number; price: number }) => ({
             symbol: asset.symbol,
             name: asset.name,
             amount: asset.amount,
