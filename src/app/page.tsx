@@ -373,27 +373,45 @@ export default function Home() {
               {[
                 {
                   title: 'Products',
-                  links: ['Digital Wallet', 'Trading Platform', 'Crypto Card', 'Earn Interest', 'Insurance Vault']
+                  links: [
+                    { name: 'Digital Wallet', href: '/products/wallet' },
+                    { name: 'Trading Platform', href: '/products/trading' },
+                    { name: 'Crypto Card', href: '/products/card' },
+                    { name: 'Earn Interest', href: '/products/earn' },
+                    { name: 'Insurance Vault', href: '/products/insurance' }
+                  ]
                 },
                 {
                   title: 'Company',
-                  links: ['About Us', 'Careers', 'Press', 'Security', 'Compliance']
+                  links: [
+                    { name: 'About Us', href: '/company/about' },
+                    { name: 'Careers', href: '/company/careers' },
+                    { name: 'Press', href: '/company/press' },
+                    { name: 'Security', href: '/company/security' },
+                    { name: 'Compliance', href: '/company/compliance' }
+                  ]
                 },
                 {
                   title: 'Support',
-                  links: ['Help Center', 'Contact Us', 'API Documentation', 'System Status', 'Bug Bounty']
+                  links: [
+                    { name: 'Help Center', href: '/support/help' },
+                    { name: 'Contact Us', href: '/support/contact' },
+                    { name: 'API Documentation', href: '/support/api' },
+                    { name: 'System Status', href: '/support/status' },
+                    { name: 'Bug Bounty', href: '/support/bounty' }
+                  ]
                 }
               ].map((section, index) => (
                 <div key={index} className="space-y-6">
                   <h3 className="font-semibold text-lg text-foreground">{section.title}</h3>
                   <ul className="space-y-4">
                     {section.links.map((link) => (
-                      <li key={link}>
+                      <li key={link.name}>
                         <a
-                          href="#"
+                          href={link.href}
                           className="text-muted-foreground hover:text-cyan-400 transition-colors text-sm"
                         >
-                          {link}
+                          {link.name}
                         </a>
                       </li>
                     ))}
