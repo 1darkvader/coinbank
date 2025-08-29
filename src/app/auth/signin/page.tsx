@@ -58,7 +58,7 @@ export default function SignInPage() {
         // Check if sign in was successful
         const session = await getSession()
         if (session) {
-          router.push('/account/dashboard')
+          router.push('/dashboard')
         }
       }
     } catch (error) {
