@@ -13,7 +13,6 @@ export default function Home() {
     <main className="min-h-screen sophisticated-bg text-foreground overflow-x-hidden">
       <Navigation />
       <CryptoTicker />
-      <AIChatbot />
 
       {/* Main Content with proper spacing for fixed elements */}
       <div className="relative">

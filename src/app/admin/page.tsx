@@ -7,7 +7,6 @@ export default function AdminPage() {
   return (
     <main className="min-h-screen sophisticated-bg text-foreground">
       <Navigation />
-      <AIChatbot />
       <div className="pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center">

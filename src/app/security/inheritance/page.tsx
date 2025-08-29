@@ -27,7 +27,6 @@ export default function InheritancePage() {
     <main className="min-h-screen sophisticated-bg text-foreground">
       <Navigation />
       <CryptoTicker />
-      <AIChatbot />
 
       <div className="pt-36 pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
