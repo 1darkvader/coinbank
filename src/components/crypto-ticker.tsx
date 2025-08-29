@@ -53,7 +53,7 @@ export function CryptoTicker() {
             className="flex items-center space-x-12 whitespace-nowrap"
             animate={{ x: [0, -100 * scrollingData.length] }}
             transition={{
-              duration: 60,
+              duration: 20,
               repeat: Infinity,
               ease: "linear"
             }}
