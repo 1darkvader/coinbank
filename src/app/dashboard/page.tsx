@@ -39,6 +39,36 @@ import {
 } from 'lucide-react'
 
 export default function DashboardPage() {
+  const { data: session, status } = useSession()
+  const router = useRouter()
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/auth/signin')
+    }
+  }, [status, router])
+
+  if (status === 'loading') {
+    return (
+      <main className="min-h-screen professional-bg text-foreground">
+        <Navigation />
+        <CryptoTicker />
+        <div className="pt-36 pb-24 flex items-center justify-center">
+          <div className="glass-effect rounded-2xl p-8 text-center">
+            <div className="animate-spin w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading dashboard...</p>
+          </div>
+        </div>
+      </main>
+    )
+  }
+
+  if (status === 'unauthenticated') {
+    return null // Will redirect via useEffect
+  }
+
+  const userName = session?.user?.name || 'User'
   return (
     <main className="min-h-screen professional-bg text-foreground">
       <Navigation />
