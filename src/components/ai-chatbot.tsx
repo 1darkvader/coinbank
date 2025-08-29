@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Bot, ChevronRight, Phone } from 'lucide-react'
 
 interface Message {
   id: string
