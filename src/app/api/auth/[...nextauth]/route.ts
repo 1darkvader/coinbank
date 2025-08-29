@@ -32,15 +32,46 @@ const authOptions: NextAuthOptions = {
         }
 
         try {
-          // Here you would typically check the user credentials against your database
-          // For now, we'll return a mock user for successful authentication
-          const user = {
-            id: '1',
-            email: credentials.email,
-            name: 'Demo User',
+          // Predefined test accounts for demo purposes
+          const testAccounts = [
+            {
+              id: '1',
+              email: 'alex@coinbank.com',
+              password: 'password123',
+              name: 'Alex Johnson',
+              role: 'Premium User'
+            },
+            {
+              id: '2', 
+              email: 'demo@coinbank.com',
+              password: 'demo123',
+              name: 'Demo User',
+              role: 'Standard User'
+            },
+            {
+              id: '3',
+              email: 'test@coinbank.com', 
+              password: 'test123',
+              name: 'Test User',
+              role: 'VIP User'
+            }
+          ]
+
+          // Find matching test account
+          const testUser = testAccounts.find(
+            account => account.email === credentials.email && account.password === credentials.password
+          )
+
+          if (testUser) {
+            return {
+              id: testUser.id,
+              email: testUser.email,
+              name: testUser.name,
+              role: testUser.role
+            }
           }
 
-          return user
+          return null
         } catch (error) {
           console.error('Auth error:', error)
           return null
