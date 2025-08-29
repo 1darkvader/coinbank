@@ -82,7 +82,7 @@ export default function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <h1 className="text-3xl font-bold text-foreground mb-2">Welcome back, Alex</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Welcome back, {userName}</h1>
             <p className="text-muted-foreground">Here's your portfolio overview for today</p>
           </motion.div>
 
