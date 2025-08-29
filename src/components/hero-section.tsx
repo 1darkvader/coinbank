@@ -29,7 +29,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden sophisticated-bg pt-36 pb-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden professional-bg pt-36 pb-24">
       {/* Advanced Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 grid-pattern opacity-30" />

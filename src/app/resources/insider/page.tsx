@@ -83,7 +83,7 @@ const featuredArticles: Article[] = [
 
 export default function InsiderPage() {
   return (
-    <main className="min-h-screen sophisticated-bg text-foreground">
+    <main className="min-h-screen professional-bg text-foreground">
       <Navigation />
       <CryptoTicker />
 

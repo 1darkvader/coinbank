@@ -3,7 +3,7 @@ import { Navigation } from "@/components/ui/navigation"
 
 export default function PaymentsPage() {
   return (
-    <main className="min-h-screen sophisticated-bg text-foreground">
+    <main className="min-h-screen professional-bg text-foreground">
       <Navigation />
       <div className="pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

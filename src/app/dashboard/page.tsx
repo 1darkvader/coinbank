@@ -91,7 +91,7 @@ export default function DashboardPage() {
 
   if (status === 'loading' || loading) {
     return (
-      <main className="min-h-screen sophisticated-bg text-foreground">
+      <main className="min-h-screen professional-bg text-foreground">
         <Navigation />
         <CryptoTicker />
         <div className="pt-36 flex items-center justify-center min-h-[60vh]">
@@ -106,7 +106,7 @@ export default function DashboardPage() {
 
   if (!session) {
     return (
-      <main className="min-h-screen sophisticated-bg text-foreground">
+      <main className="min-h-screen professional-bg text-foreground">
         <Navigation />
         <CryptoTicker />
         <div className="pt-36 pb-16">
@@ -132,7 +132,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="min-h-screen sophisticated-bg text-foreground">
+    <main className="min-h-screen professional-bg text-foreground">
       <Navigation />
       <CryptoTicker />
       

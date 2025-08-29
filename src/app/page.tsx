@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 
 export default function Home() {
   return (
-    <main className="min-h-screen sophisticated-bg text-foreground overflow-x-hidden">
+    <main className="min-h-screen professional-bg text-foreground overflow-x-hidden">
       <Navigation />
       <CryptoTicker />
 

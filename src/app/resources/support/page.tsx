@@ -3,7 +3,7 @@ import { CryptoTicker } from "@/components/crypto-ticker";
 
 export default function Page() {
   return (
-    <main className="min-h-screen sophisticated-bg text-foreground">
+    <main className="min-h-screen professional-bg text-foreground">
       <Navigation />
       <CryptoTicker />
       <div className="pt-36 pb-24">
