@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Calculate total value
-    const totalValue = assets?.reduce((sum: number, asset: any) => sum + (asset.amount * asset.price), 0) || 0
+    const totalValue = assets?.reduce((sum: number, asset: { amount: number; price: number }) => sum + (asset.amount * asset.price), 0) || 0
 
     const portfolio = await prisma.portfolio.create({
       data: {
