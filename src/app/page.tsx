@@ -433,6 +433,9 @@ export default function Home() {
           </div>
         </footer>
       </div>
+      
+      {/* AI Chatbot */}
+      <AIChatbot />
     </main>
   )
 }
