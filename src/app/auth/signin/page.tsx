@@ -88,18 +88,16 @@ export default function SignInPage() {
             <div className="glass-effect rounded-xl p-4 mb-6">
               <h3 className="font-semibold text-foreground mb-3">📋 Test Accounts Available:</h3>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between items-center p-2 bg-secondary/20 rounded">
-                  <span className="text-blue-400">alex@coinbank.com</span>
-                  <span className="text-muted-foreground">password123</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-secondary/20 rounded">
-                  <span className="text-blue-400">demo@coinbank.com</span>
-                  <span className="text-muted-foreground">demo123</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-secondary/20 rounded">
-                  <span className="text-blue-400">test@coinbank.com</span>
-                  <span className="text-muted-foreground">test123</span>
-                </div>
+                {testAccounts.map((account, index) => (
+                  <div 
+                    key={index}
+                    onClick={() => fillTestAccount(account.email, account.password)}
+                    className="flex justify-between items-center p-2 bg-secondary/20 rounded cursor-pointer hover:bg-secondary/40 transition-colors"
+                  >
+                    <span className="text-blue-400">{account.email}</span>
+                    <span className="text-muted-foreground">{account.password}</span>
+                  </div>
+                ))}
               </div>
               <p className="text-xs text-muted-foreground mt-2">Click any account above to auto-fill the form</p>
             </div>
