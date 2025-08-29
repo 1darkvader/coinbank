@@ -18,7 +18,7 @@ import {
   Download,
   QrCode,
   Send,
-  Receive
+  Receipt
 } from 'lucide-react'
 
 const walletFeatures = [
