@@ -274,7 +274,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">Live Chat</h4>
                     <p className="text-muted-foreground">Available 24/7 in-app</p>
-                    <p className="text-sm text-purple-400">Average response < 2 minutes</p>
+                    <p className="text-sm text-purple-400">Average response &lt; 2 minutes</p>
                   </div>
                 </div>
               </div>
