@@ -185,7 +185,7 @@ export function AIChatbot() {
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
-        ●
+        <span className="text-2xl">💬</span>
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-400 rounded-full animate-pulse" />
       </motion.button>
 
@@ -208,7 +208,7 @@ export function AIChatbot() {
             <div className="flex items-center justify-between p-4 border-b border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
-                  ●
+                  <span className="text-white text-lg">🤖</span>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">CoinBot Assistant</h3>
@@ -231,7 +231,7 @@ export function AIChatbot() {
                   onClick={() => setIsOpen(false)}
                   className="p-1 rounded-lg hover:bg-white/10 transition-colors"
                 >
-                  ●
+                  <span className="text-muted-foreground">✕</span>
                 </button>
               </div>
             </div>
@@ -295,7 +295,7 @@ export function AIChatbot() {
                                 >
                                   <div className="flex items-center justify-between">
                                     <span>{suggestion}</span>
-                                    <span>→</span>
+                                    <ChevronRight className="w-3 h-3" />
                                   </div>
                                 </button>
                               ))}
@@ -314,7 +314,7 @@ export function AIChatbot() {
                     >
                       <div className="flex items-start space-x-2">
                         <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center">
-                          ●
+                          <Bot className="w-4 h-4 text-white" />
                         </div>
                         <div className="glass-effect p-3 rounded-2xl">
                           <div className="flex space-x-1">
@@ -346,11 +346,11 @@ export function AIChatbot() {
                       disabled={!inputValue.trim()}
                       className="p-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl transition-all"
                     >
-                      ●
+                      <span className="text-white">➤</span>
                     </button>
                   </div>
                   <div className="flex items-center justify-center mt-2 space-x-1">
-                    ●
+                    <Phone className="w-3 h-3 text-muted-foreground" />
                     <span className="text-xs text-muted-foreground">
                       Need human support? Call +1 (555) 123-4567
                     </span>
