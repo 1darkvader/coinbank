@@ -105,7 +105,7 @@ export default function ContactPage() {
                 <div className="text-muted-foreground">Support Available</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">< 2min</div>
+                <div className="text-3xl font-bold gradient-text">&lt; 2min</div>
                 <div className="text-muted-foreground">Average Response</div>
               </div>
               <div className="text-center">
