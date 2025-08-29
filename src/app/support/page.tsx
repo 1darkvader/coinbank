@@ -91,7 +91,7 @@ export default function SupportPage() {
             </div>
             <div className="grid md:grid-cols-4 gap-8">
               {[
-                { label: 'Average Response Time', value: '< 2 min', icon: Clock },
+                { label: 'Average Response Time', value: '&lt; 2 min', icon: Clock },
                 { label: 'Customer Satisfaction', value: '98.7%', icon: CheckCircle2 },
                 { label: 'Languages Supported', value: '25+', icon: Globe },
                 { label: 'Support Tickets Resolved', value: '500K+', icon: Users }
