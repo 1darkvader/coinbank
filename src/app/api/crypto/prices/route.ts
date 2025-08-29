@@ -44,7 +44,7 @@ export async function GET() {
     // Add some randomness to simulate live prices
     const updatedPrices = Object.entries(mockPrices).reduce((acc, [key, crypto]) => {
       const randomVariation = (Math.random() - 0.5) * 0.02 // ±1% variation
-      acc[key] = {
+      (acc as any)[key] = {
         ...crypto,
         price: crypto.price * (1 + randomVariation),
         change24h: crypto.change24h + (Math.random() - 0.5) * 2
