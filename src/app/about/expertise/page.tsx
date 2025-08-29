@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Navigation } from '@/components/ui/navigation'
 import { CryptoTicker } from '@/components/crypto-ticker'
-import { AIChatbot } from '@/components/ai-chatbot'
 
 export default function ExpertisePage() {
   return (
