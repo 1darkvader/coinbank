@@ -45,7 +45,7 @@ interface UserProfile {
   }
 }
 
-export default function DashboardPage() {
+export default function AccountDashboardPage() {
   const { data: session, status } = useSession()
   const [portfolios, setPortfolios] = useState<Portfolio[]>([])
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
@@ -91,13 +91,13 @@ export default function DashboardPage() {
 
   if (status === 'loading' || loading) {
     return (
-      <main className="min-h-screen sophisticated-bg text-foreground">
+      <main className="professional-bg text-white min-h-screen">
         <Navigation />
         <CryptoTicker />
         <div className="pt-36 flex items-center justify-center min-h-[60vh]">
-          <div className="glass-effect rounded-2xl p-8 text-center">
+          <div className="banking-card rounded-2xl p-8 text-center">
             <div className="animate-spin w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full mx-auto mb-4"></div>
-            <p className="text-muted-foreground">Loading dashboard...</p>
+            <p className="text-gray-400">Loading dashboard...</p>
           </div>
         </div>
       </main>
@@ -106,21 +106,21 @@ export default function DashboardPage() {
 
   if (!session) {
     return (
-      <main className="min-h-screen sophisticated-bg text-foreground">
+      <main className="professional-bg text-white min-h-screen">
         <Navigation />
         <CryptoTicker />
         <div className="pt-36 pb-16">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="glass-effect rounded-2xl p-12">
+            <div className="banking-card rounded-2xl p-12">
               <Wallet className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
-              <h1 className="text-3xl font-bold text-foreground mb-4">
-                Access Your Dashboard
+              <h1 className="text-3xl font-bold text-white mb-4">
+                Access Your Account Dashboard
               </h1>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-gray-400 mb-8">
                 Sign in to view your portfolio, transactions, and account details.
               </p>
               <Link href="/auth/signin">
-                <button className="btn-primary text-lg px-8 py-4">
+                <button className="professional-button text-lg px-8 py-4 rounded-xl">
                   Sign In to Continue
                 </button>
               </Link>
@@ -132,7 +132,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="min-h-screen sophisticated-bg text-foreground">
+    <main className="professional-bg text-white min-h-screen">
       <Navigation />
       <CryptoTicker />
       
@@ -140,61 +140,61 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Welcome Section */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground mb-2">
+            <h1 className="text-4xl font-bold text-white mb-2">
               Welcome back, {userProfile?.name || session.user?.name}
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-gray-400">
               Here's your crypto banking overview for today
             </p>
           </div>
 
           {/* Balance Cards */}
           <div className="grid md:grid-cols-4 gap-6 mb-8">
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="banking-card rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <DollarSign className="w-8 h-8 text-cyan-400" />
                 <TrendingUp className="w-5 h-5 text-emerald-400" />
               </div>
-              <div className="text-2xl font-bold text-foreground">
+              <div className="text-2xl font-bold text-white">
                 ${totalBalance.toLocaleString()}
               </div>
-              <div className="text-sm text-muted-foreground">Total Balance</div>
+              <div className="text-sm text-gray-400">Total Balance</div>
               <div className="text-xs text-emerald-400 mt-1">+12.5% this month</div>
             </div>
 
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="banking-card rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <PieChart className="w-8 h-8 text-blue-400" />
-                <span className="text-xs text-muted-foreground">{portfolios.length} portfolios</span>
+                <span className="text-xs text-gray-400">{portfolios.length} portfolios</span>
               </div>
-              <div className="text-2xl font-bold text-foreground">
+              <div className="text-2xl font-bold text-white">
                 {userProfile?._count.portfolios || 0}
               </div>
-              <div className="text-sm text-muted-foreground">Portfolios</div>
+              <div className="text-sm text-gray-400">Portfolios</div>
               <div className="text-xs text-blue-400 mt-1">Active investing</div>
             </div>
 
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="banking-card rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <Activity className="w-8 h-8 text-purple-400" />
                 <ArrowUpRight className="w-5 h-5 text-emerald-400" />
               </div>
-              <div className="text-2xl font-bold text-foreground">
+              <div className="text-2xl font-bold text-white">
                 {userProfile?._count.transactions || 0}
               </div>
-              <div className="text-sm text-muted-foreground">Transactions</div>
+              <div className="text-sm text-gray-400">Transactions</div>
               <div className="text-xs text-emerald-400 mt-1">3 pending</div>
             </div>
 
-            <div className="glass-effect rounded-2xl p-6">
+            <div className="banking-card rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <CreditCard className="w-8 h-8 text-orange-400" />
-                <span className="text-xs text-muted-foreground">Active</span>
+                <span className="text-xs text-gray-400">Active</span>
               </div>
-              <div className="text-2xl font-bold text-foreground">
+              <div className="text-2xl font-bold text-white">
                 {userProfile?._count.cards || 0}
               </div>
-              <div className="text-sm text-muted-foreground">Crypto Cards</div>
+              <div className="text-sm text-gray-400">Crypto Cards</div>
               <div className="text-xs text-orange-400 mt-1">$2,450 available</div>
             </div>
           </div>
@@ -202,11 +202,11 @@ export default function DashboardPage() {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Portfolio Overview */}
             <div className="lg:col-span-2">
-              <div className="glass-effect rounded-2xl p-6">
+              <div className="banking-card rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-bold text-foreground">Portfolio Overview</h2>
+                  <h2 className="text-xl font-bold text-white">Portfolio Overview</h2>
                   <Link href="/wallet">
-                    <button className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center">
+                    <button className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center transition-colors">
                       View All <ArrowUpRight className="w-4 h-4 ml-1" />
                     </button>
                   </Link>
@@ -215,18 +215,18 @@ export default function DashboardPage() {
                 {portfolios.length > 0 ? (
                   <div className="space-y-4">
                     {portfolios.slice(0, 3).map((portfolio) => (
-                      <div key={portfolio.id} className="border border-border/20 rounded-xl p-4">
+                      <div key={portfolio.id} className="border border-gray-700 rounded-xl p-4">
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-medium text-foreground">{portfolio.name}</span>
-                          <span className="text-foreground font-bold">
+                          <span className="font-medium text-white">{portfolio.name}</span>
+                          <span className="text-white font-bold">
                             ${portfolio.totalValue.toLocaleString()}
                           </span>
                         </div>
                         <div className="grid grid-cols-3 gap-3">
                           {portfolio.assets.slice(0, 3).map((asset) => (
                             <div key={asset.symbol} className="text-center">
-                              <div className="text-sm font-medium text-foreground">{asset.symbol}</div>
-                              <div className="text-xs text-muted-foreground">{asset.amount}</div>
+                              <div className="text-sm font-medium text-white">{asset.symbol}</div>
+                              <div className="text-xs text-gray-400">{asset.amount}</div>
                               <div className="text-xs text-cyan-400">{asset.allocation.toFixed(1)}%</div>
                             </div>
                           ))}
@@ -236,10 +236,10 @@ export default function DashboardPage() {
                   </div>
                 ) : (
                   <div className="text-center py-8">
-                    <PieChart className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground mb-4">No portfolios yet</p>
+                    <PieChart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-400 mb-4">No portfolios yet</p>
                     <Link href="/wallet">
-                      <button className="btn-primary">
+                      <button className="professional-button">
                         <Plus className="w-4 h-4 mr-2" />
                         Create Portfolio
                       </button>
@@ -251,16 +251,16 @@ export default function DashboardPage() {
 
             {/* Quick Actions */}
             <div>
-              <div className="glass-effect rounded-2xl p-6 mb-6">
-                <h2 className="text-xl font-bold text-foreground mb-6">Quick Actions</h2>
+              <div className="banking-card rounded-2xl p-6 mb-6">
+                <h2 className="text-xl font-bold text-white mb-6">Quick Actions</h2>
                 <div className="space-y-3">
                   <Link href="/banking/transact" className="block">
                     <button className="w-full flex items-center justify-between p-4 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 transition-colors">
                       <div className="flex items-center">
                         <Send className="w-5 h-5 text-cyan-400 mr-3" />
-                        <span className="text-foreground">Send Crypto</span>
+                        <span className="text-white">Send Crypto</span>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
+                      <ArrowUpRight className="w-4 h-4 text-gray-400" />
                     </button>
                   </Link>
 
@@ -268,19 +268,19 @@ export default function DashboardPage() {
                     <button className="w-full flex items-center justify-between p-4 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 transition-colors">
                       <div className="flex items-center">
                         <Repeat className="w-5 h-5 text-blue-400 mr-3" />
-                        <span className="text-foreground">Trade</span>
+                        <span className="text-white">Trade</span>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
+                      <ArrowUpRight className="w-4 h-4 text-gray-400" />
                     </button>
                   </Link>
 
                   <Link href="/banking/earn" className="block">
-                    <button className="w-full flex items-center justify-between p-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 transition-colors">
+                    <button className="w-full flex items-center justify-between p4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 transition-colors">
                       <div className="flex items-center">
                         <TrendingUp className="w-5 h-5 text-emerald-400 mr-3" />
-                        <span className="text-foreground">Earn Yield</span>
+                        <span className="text-white">Earn Yield</span>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
+                      <ArrowUpRight className="w-4 h-4 text-gray-400" />
                     </button>
                   </Link>
 
@@ -288,17 +288,17 @@ export default function DashboardPage() {
                     <button className="w-full flex items-center justify-between p-4 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 transition-colors">
                       <div className="flex items-center">
                         <CreditCard className="w-5 h-5 text-purple-400 mr-3" />
-                        <span className="text-foreground">Crypto Card</span>
+                        <span className="text-white">Crypto Card</span>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
+                      <ArrowUpRight className="w-4 h-4 text-gray-400" />
                     </button>
                   </Link>
                 </div>
               </div>
 
               {/* Recent Transactions */}
-              <div className="glass-effect rounded-2xl p-6">
-                <h2 className="text-xl font-bold text-foreground mb-4">Recent Activity</h2>
+              <div className="banking-card rounded-2xl p-6">
+                <h2 className="text-xl font-bold text-white mb-4">Recent Activity</h2>
                 <div className="space-y-3">
                   {mockTransactions.map((tx) => (
                     <div key={tx.id} className="flex items-center justify-between py-2">
@@ -312,10 +312,10 @@ export default function DashboardPage() {
                           }
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-foreground">
+                          <div className="text-sm font-medium text-white">
                             {tx.type.toUpperCase()} {tx.symbol}
                           </div>
-                          <div className="text-xs text-muted-foreground">
+                          <div className="text-xs text-gray-400">
                             {tx.amount} {tx.symbol}
                           </div>
                         </div>
@@ -326,7 +326,7 @@ export default function DashboardPage() {
                         }`}>
                           ${(tx.amount * tx.price).toLocaleString()}
                         </div>
-                        <div className="text-xs text-muted-foreground">{tx.date}</div>
+                        <div className="text-xs text-gray-400">{tx.date}</div>
                       </div>
                     </div>
                   ))}
