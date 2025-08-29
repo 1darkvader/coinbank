@@ -1,0 +1,120 @@
+/* [project]/src/app/globals.css [app-client] (css) */
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+:root {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --radius: .75rem;
+}
+
+@layer base {
+  @apply border-border;
+
+  @apply bg-background text-foreground;
+}
+
+.sophisticated-bg {
+  background-color: #0f172a;
+  background-image: radial-gradient(at top, #0f172a4d, #0000), radial-gradient(at bottom, #3b82f60d, #0000), none;
+  background-position: 0 0, 0 0, 0 0;
+  background-repeat: repeat, repeat, repeat;
+  background-size: auto, auto, auto;
+  background-attachment: fixed;
+  background-origin: padding-box, padding-box, padding-box;
+  background-clip: border-box, border-box, border-box;
+}
+
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background: #ffffff0d;
+  border: 1px solid #ffffff1a;
+}
+
+@apply bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent;
+
+@apply bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent;
+
+@apply bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent;
+
+@apply bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:from-cyan-400 hover:to-blue-500 hover:shadow-lg hover:shadow-cyan-500 / 25 active:scale-95;
+
+@apply bg-white / 10 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-white / 20 border border-white / 20 hover:border-white / 30;
+
+@apply bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:from-cyan-400 hover:to-blue-500 hover:shadow-lg hover:shadow-cyan-500 / 25;
+
+.premium-shadow {
+  box-shadow: 0 25px 50px -12px #00000040, 0 0 0 1px #ffffff0d, inset 0 1px #ffffff1a;
+}
+
+.professional-shadow {
+  box-shadow: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a, 0 0 0 1px #3b82f61a;
+}
+
+.hover-lift {
+  transition: transform .2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.crypto-ticker {
+  background: linear-gradient(90deg, #0000, #3b82f61a, #0000);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: 3s ease-in-out infinite float;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px #3b82f64d;
+  }
+
+  50% {
+    box-shadow: 0 0 30px #3b82f699;
+  }
+}
+
+.animate-glow {
+  animation: 2s ease-in-out infinite glow;
+}
+
+
+/*# sourceMappingURL=src_app_globals_b805903d.css.map*/
