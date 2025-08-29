@@ -34,7 +34,9 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="antialiased">
-        <ClientBody>{children}</ClientBody>
+        <Providers>
+          <ClientBody>{children}</ClientBody>
+        </Providers>
       </body>
     </html>
   );
