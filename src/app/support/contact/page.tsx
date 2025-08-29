@@ -24,7 +24,7 @@ const contactMethods = [
     description: "Get instant support from our team",
     icon: MessageCircle,
     availability: "24/7 Available",
-    response: "< 2 minutes",
+    response: "&lt; 2 minutes",
     color: "from-blue-500 to-indigo-600",
     action: "Start Chat"
   },
