@@ -427,13 +427,18 @@ export default function Home() {
                   © 2025 CoinBank. All rights reserved. | Licensed financial institution | FDIC Insured
                 </div>
                 <div className="flex flex-wrap gap-8 text-sm">
-                  {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Compliance'].map((item) => (
+                  {[
+                    { name: 'Privacy Policy', href: '/legal/privacy' },
+                    { name: 'Terms of Service', href: '/legal/terms' },
+                    { name: 'Cookie Policy', href: '/legal/cookies' },
+                    { name: 'Compliance', href: '/company/compliance' }
+                  ].map((item) => (
                     <a
-                      key={item}
-                      href="#"
+                      key={item.name}
+                      href={item.href}
                       className="text-muted-foreground hover:text-cyan-400 transition-colors"
                     >
-                      {item}
+                      {item.name}
                     </a>
                   ))}
                 </div>
