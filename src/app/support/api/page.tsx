@@ -151,7 +151,7 @@ export default function APIPage() {
                 <div className="text-muted-foreground">Uptime</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">< 10ms</div>
+                <div className="text-3xl font-bold gradient-text">&lt; 10ms</div>
                 <div className="text-muted-foreground">Latency</div>
               </div>
               <div className="text-center">
