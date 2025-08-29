@@ -112,7 +112,7 @@ export default function BorrowPage() {
                 <div className="text-muted-foreground">Starting APR</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">< 5 min</div>
+                <div className="text-3xl font-bold gradient-text">&lt; 5 min</div>
                 <div className="text-muted-foreground">Approval Time</div>
               </div>
             </div>
