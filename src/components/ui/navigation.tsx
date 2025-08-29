@@ -78,10 +78,27 @@ const navigationSections: NavigationSection[] = [
 
 // Professional header navigation items
 const headerNavItems = [
+  { name: 'Home', href: '/' },
   { name: 'Products', href: '#', hasDropdown: true },
   { name: 'Trading', href: '/trading' },
   { name: 'Security', href: '/security/system' },
   { name: 'Company', href: '#', hasDropdown: true }
+]
+
+const productsDropdown = [
+  { name: 'Digital Wallet', href: '/products/wallet', description: 'Secure crypto storage' },
+  { name: 'Trading Platform', href: '/products/trading', description: 'Advanced trading tools' },
+  { name: 'Crypto Card', href: '/products/card', description: 'Spend crypto anywhere' },
+  { name: 'Earn Interest', href: '/products/earn', description: 'Grow your crypto' },
+  { name: 'Insurance Vault', href: '/products/insurance', description: 'Asset protection' }
+]
+
+const companyDropdown = [
+  { name: 'About Us', href: '/company/about', description: 'Our mission and vision' },
+  { name: 'Careers', href: '/company/careers', description: 'Join our team' },
+  { name: 'Press', href: '/company/press', description: 'News and media' },
+  { name: 'Security', href: '/company/security', description: 'Security practices' },
+  { name: 'Compliance', href: '/company/compliance', description: 'Regulatory framework' }
 ]
 
 export function Navigation() {
