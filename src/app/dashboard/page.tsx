@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { motion } from 'framer-motion'
 import { Navigation } from '@/components/ui/navigation'
 import { CryptoTicker } from '@/components/crypto-ticker'
 import { 
@@ -56,6 +55,8 @@ export default function DashboardPage() {
   useEffect(() => {
     if (session) {
       fetchUserData()
+    } else {
+      setLoading(false)
     }
   }, [session])
 
@@ -110,11 +111,7 @@ export default function DashboardPage() {
         <CryptoTicker />
         <div className="pt-36 pb-16">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="glass-effect rounded-2xl p-12"
-            >
+            <div className="glass-effect rounded-2xl p-12">
               <Wallet className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
               <h1 className="text-3xl font-bold text-foreground mb-4">
                 Access Your Dashboard
@@ -127,7 +124,7 @@ export default function DashboardPage() {
                   Sign In to Continue
                 </button>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
       </main>
@@ -142,26 +139,17 @@ export default function DashboardPage() {
       <div className="pt-36 pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Welcome Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
-          >
+          <div className="mb-8">
             <h1 className="text-4xl font-bold text-foreground mb-2">
               Welcome back, {userProfile?.name || session.user?.name}
             </h1>
             <p className="text-muted-foreground">
               Here's your crypto banking overview for today
             </p>
-          </motion.div>
+          </div>
 
           {/* Balance Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="grid md:grid-cols-4 gap-6 mb-8"
-          >
+          <div className="grid md:grid-cols-4 gap-6 mb-8">
             <div className="glass-effect rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <DollarSign className="w-8 h-8 text-cyan-400" />
@@ -209,16 +197,11 @@ export default function DashboardPage() {
               <div className="text-sm text-muted-foreground">Crypto Cards</div>
               <div className="text-xs text-orange-400 mt-1">$2,450 available</div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Portfolio Overview */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="lg:col-span-2"
-            >
+            <div className="lg:col-span-2">
               <div className="glass-effect rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-bold text-foreground">Portfolio Overview</h2>
@@ -264,14 +247,10 @@ export default function DashboardPage() {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
 
             {/* Quick Actions */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
+            <div>
               <div className="glass-effect rounded-2xl p-6 mb-6">
                 <h2 className="text-xl font-bold text-foreground mb-6">Quick Actions</h2>
                 <div className="space-y-3">
@@ -353,7 +332,7 @@ export default function DashboardPage() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
