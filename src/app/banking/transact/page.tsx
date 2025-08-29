@@ -104,7 +104,7 @@ export default function TransactPage() {
                 <div className="text-muted-foreground">Countries</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text">< 30s</div>
+                <div className="text-3xl font-bold gradient-text">&lt; 30s</div>
                 <div className="text-muted-foreground">Transfer Time</div>
               </div>
               <div className="text-center">
