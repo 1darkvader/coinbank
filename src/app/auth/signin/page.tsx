@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { signIn, getSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Navigation } from '@/components/ui/navigation'
 import { Button } from '@/components/ui/button'
 import { 
@@ -29,6 +29,40 @@ export default function SignInPage() {
   const [error, setError] = useState('')
   
   const router = useRouter()
+  const searchParams = useSearchParams()
+
+  // Check for URL error parameters
+  useEffect(() => {
+    const urlError = searchParams.get('error')
+    if (urlError) {
+      setError(getErrorMessage(urlError))
+    }
+  }, [searchParams])
+
+  const getErrorMessage = (errorCode: string) => {
+    switch (errorCode) {
+      case 'CredentialsSignin':
+        return 'Invalid credentials. Please check your email and password.'
+      case 'OAuthSignin':
+        return 'Error occurred during OAuth sign in.'
+      case 'OAuthCallback':
+        return 'Error in OAuth callback.'
+      case 'OAuthCreateAccount':
+        return 'Could not create OAuth account.'
+      case 'EmailCreateAccount':
+        return 'Could not create account with email.'
+      case 'Callback':
+        return 'Error in callback URL.'
+      case 'OAuthAccountNotLinked':
+        return 'OAuth account not linked. Please sign in with your original method.'
+      case 'EmailSignin':
+        return 'Check your email for the sign in link.'
+      case 'SessionRequired':
+        return 'Please sign in to access this page.'
+      default:
+        return 'An authentication error occurred. Please try again.'
+    }
+  }
 
   const testAccounts = [
     { email: 'alex@coinbank.com', password: 'password123', name: 'Alex Johnson' },
