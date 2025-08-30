@@ -6,10 +6,11 @@ export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/api/')) {
     const response = NextResponse.next()
     
-    // Allow requests from the preview domain
+    // Allow requests from preview and production domains
     const origin = request.headers.get('origin')
     if (origin && (
       origin.includes('emergentagent.com') || 
+      origin.includes('emergent.host') ||
       origin.includes('localhost') ||
       origin.includes('127.0.0.1')
     )) {
