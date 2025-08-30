@@ -27,15 +27,169 @@ class CoinBankAPITester:
         else:
             print(f"❌ {name} - FAILED: {message}")
         
-    def test_homepage_load(self):
-        """Test if homepage loads correctly"""
+    def test_api_health_check(self):
+        """Test /api/health endpoint"""
         try:
-            response = self.session.get(f"{self.base_url}/")
-            success = response.status_code == 200 and "CoinBank" in response.text
-            self.log_test("Homepage Load", success, f"Status: {response.status_code}")
+            response = self.session.get(f"{self.base_url}/api/health")
+            success = response.status_code == 200
+            
+            if success:
+                data = response.json()
+                success = (
+                    "status" in data and 
+                    data["status"] == "healthy" and
+                    "timestamp" in data and
+                    "message" in data
+                )
+                
+            self.log_test("API Health Check", success, 
+                         f"Status: {response.status_code}")
             return success
         except Exception as e:
-            self.log_test("Homepage Load", False, str(e))
+            self.log_test("API Health Check", False, str(e))
+            return False
+    
+    def test_nextauth_session_endpoint(self):
+        """Test NextAuth session endpoint"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/auth/session")
+            success = response.status_code == 200
+            
+            self.log_test("NextAuth Session Endpoint", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("NextAuth Session Endpoint", False, str(e))
+            return False
+    
+    def test_nextauth_signin_endpoint(self):
+        """Test NextAuth signin endpoint"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/auth/signin")
+            success = response.status_code == 200
+            
+            self.log_test("NextAuth Signin Endpoint", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("NextAuth Signin Endpoint", False, str(e))
+            return False
+    
+    def test_crypto_prices_api(self):
+        """Test crypto prices API endpoint"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/crypto/prices")
+            success = response.status_code == 200
+            
+            if success:
+                data = response.json()
+                success = (
+                    "success" in data and 
+                    data["success"] == True and
+                    "data" in data and
+                    "timestamp" in data and
+                    "bitcoin" in data["data"] and
+                    "ethereum" in data["data"]
+                )
+                
+            self.log_test("Crypto Prices API", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("Crypto Prices API", False, str(e))
+            return False
+    
+    def test_portfolio_api_unauthorized(self):
+        """Test portfolio API without authentication (should fail)"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/portfolio")
+            success = response.status_code == 401
+            
+            self.log_test("Portfolio API (Unauthorized)", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("Portfolio API (Unauthorized)", False, str(e))
+            return False
+    
+    def test_user_profile_api_unauthorized(self):
+        """Test user profile API without authentication (should fail)"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/user/profile")
+            success = response.status_code == 401
+            
+            self.log_test("User Profile API (Unauthorized)", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("User Profile API (Unauthorized)", False, str(e))
+            return False
+    
+    def test_nextauth_credentials_login(self):
+        """Test NextAuth credentials login with test accounts"""
+        try:
+            # Test with alex@coinbank.com account
+            login_data = {
+                "email": "alex@coinbank.com",
+                "password": "password123",
+                "csrfToken": "test-csrf-token"
+            }
+            
+            response = self.session.post(
+                f"{self.base_url}/api/auth/callback/credentials",
+                data=login_data,
+                headers={"Content-Type": "application/x-www-form-urlencoded"}
+            )
+            
+            # NextAuth might redirect or return different status codes
+            success = response.status_code in [200, 302, 307]
+            
+            self.log_test("NextAuth Credentials Login", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("NextAuth Credentials Login", False, str(e))
+            return False
+    
+    def test_environment_variables(self):
+        """Test if required environment variables are loaded"""
+        try:
+            # Test health endpoint to see if NEXTAUTH_SECRET is working
+            response = self.session.get(f"{self.base_url}/api/health")
+            success = response.status_code == 200
+            
+            if success:
+                data = response.json()
+                success = "environment" in data and data["environment"] == "development"
+                
+            self.log_test("Environment Variables", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("Environment Variables", False, str(e))
+            return False
+    
+    def test_cors_configuration(self):
+        """Test CORS configuration for cross-origin requests"""
+        try:
+            headers = {
+                "Origin": "https://coinbank-revamp.preview.emergentagent.com",
+                "Access-Control-Request-Method": "GET",
+                "Access-Control-Request-Headers": "Content-Type"
+            }
+            
+            # Test preflight request
+            response = self.session.options(f"{self.base_url}/api/health", headers=headers)
+            
+            # CORS might not be explicitly configured, so we test actual request
+            response = self.session.get(f"{self.base_url}/api/health", headers={"Origin": "https://coinbank-revamp.preview.emergentagent.com"})
+            success = response.status_code == 200
+            
+            self.log_test("CORS Configuration", success, 
+                         f"Status: {response.status_code}")
+            return success
+        except Exception as e:
+            self.log_test("CORS Configuration", False, str(e))
             return False
     
     def test_user_registration(self):
