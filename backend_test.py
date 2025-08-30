@@ -374,6 +374,9 @@ class CoinBankAPITester:
         self.test_environment_variables()
         self.test_cors_configuration()
         
+        # Test new content pages
+        self.test_new_content_pages()
+        
         # Test page routes
         self.test_page_routes()
         
