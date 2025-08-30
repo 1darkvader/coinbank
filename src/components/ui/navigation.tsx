@@ -362,7 +362,7 @@ export function Navigation() {
                   </>
                 ) : (
                   <div className="space-y-2">
-                    <Link href="/auth/signin">
+                    <Link href="/signin">
                       <Button variant="ghost" className="w-full justify-center professional-nav-button">
                         Sign In
                       </Button>
