@@ -80,7 +80,7 @@ const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/auth/signin',
-    error: '/auth/signin'
+    error: '/auth/signin' // Redirect errors back to signin page instead of error page
   },
   session: {
     strategy: 'jwt',
@@ -89,8 +89,18 @@ const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',
   trustHost: true,
-  // Use environment NEXTAUTH_URL or derive from request in production
-  ...(process.env.NODE_ENV === 'production' && !process.env.NEXTAUTH_URL ? {} : {})
+  // Allow NextAuth to auto-detect the URL in production environments
+  ...(process.env.NODE_ENV === 'production' ? {
+    callbacks: {
+      ...authOptions.callbacks,
+      redirect: async ({ url, baseUrl }) => {
+        // Ensure redirects work properly in production
+        if (url.startsWith('/')) return `${baseUrl}${url}`
+        if (new URL(url).origin === baseUrl) return url
+        return baseUrl
+      }
+    }
+  } : {})
 }
 
 const handler = NextAuth(authOptions)
