@@ -173,7 +173,7 @@ class CoinBankAPITester:
         """Test CORS configuration for cross-origin requests"""
         try:
             headers = {
-                "Origin": "https://coinbank-revamp.preview.emergentagent.com",
+                "Origin": "https://coinbank-next.preview.emergentagent.com",
                 "Access-Control-Request-Method": "GET",
                 "Access-Control-Request-Headers": "Content-Type"
             }
@@ -182,7 +182,7 @@ class CoinBankAPITester:
             response = self.session.options(f"{self.base_url}/api/health", headers=headers)
             
             # CORS might not be explicitly configured, so we test actual request
-            response = self.session.get(f"{self.base_url}/api/health", headers={"Origin": "https://coinbank-revamp.preview.emergentagent.com"})
+            response = self.session.get(f"{self.base_url}/api/health", headers={"Origin": "https://coinbank-next.preview.emergentagent.com"})
             success = response.status_code == 200
             
             self.log_test("CORS Configuration", success, 

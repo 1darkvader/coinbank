@@ -5,7 +5,7 @@ const nextConfig = {
   },
   allowedDevOrigins: [
     'coinbank-revamp.preview.emergentagent.com',
-    'https://coinbank-revamp.preview.emergentagent.com'
+    'https://coinbank-next.preview.emergentagent.com'
   ],
   async headers() {
     return [
