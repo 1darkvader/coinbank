@@ -16,6 +16,7 @@ class CoinBankAPITester:
         self.tests_run = 0
         self.tests_passed = 0
         self.test_user_email = f"test_user_{datetime.now().strftime('%H%M%S')}@coinbank.test"
+        self.auth_session_cookie = None
         
     def log_test(self, name, success, message=""):
         """Log test results"""
