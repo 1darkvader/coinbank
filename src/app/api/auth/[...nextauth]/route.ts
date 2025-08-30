@@ -76,6 +76,13 @@ const authOptions: NextAuthOptions = {
         ;(session.user as any).role = token.role
       }
       return session
+    },
+    // Production redirect callback
+    async redirect({ url, baseUrl }) {
+      // Ensure redirects work properly in production
+      if (url.startsWith('/')) return `${baseUrl}${url}`
+      if (new URL(url).origin === baseUrl) return url
+      return baseUrl
     }
   },
   pages: {
@@ -88,19 +95,8 @@ const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',
-  trustHost: true,
-  // Allow NextAuth to auto-detect the URL in production environments
-  ...(process.env.NODE_ENV === 'production' ? {
-    callbacks: {
-      ...authOptions.callbacks,
-      redirect: async ({ url, baseUrl }) => {
-        // Ensure redirects work properly in production
-        if (url.startsWith('/')) return `${baseUrl}${url}`
-        if (new URL(url).origin === baseUrl) return url
-        return baseUrl
-      }
-    }
-  } : {})
+  trustHost: true
+}
 }
 
 const handler = NextAuth(authOptions)
