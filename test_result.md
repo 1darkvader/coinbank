@@ -89,6 +89,21 @@ backend:
         agent: "testing"
         comment: "CSS and JS static assets are loading correctly with HTTP 200 status"
 
+  - task: "Deployment Configuration Fix"
+    implemented: true
+    working: "pending"
+    file: "src/middleware.ts, next.config.js"
+    stuck_count: 0
+    priority: "critical"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "main"
+        comment: "502 error on live preview due to CORS configuration missing emergent.host domain"
+      - working: "pending"
+        agent: "main"
+        comment: "Fixed CORS middleware to include emergent.host domains and updated allowedDevOrigins. Testing needed."
+
 frontend:
   - task: "Frontend UI Testing"
     implemented: true
