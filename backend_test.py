@@ -318,6 +318,34 @@ class CoinBankAPITester:
                 
         return all_passed
     
+    def test_page_routes(self):
+        """Test if key pages are accessible"""
+        pages_to_test = [
+            "/dashboard",
+            "/auth/signin", 
+            "/auth/signup",
+            "/banking/hold",
+            "/banking/earn",
+            "/banking/transact",
+            "/banking/grow",
+            "/banking/borrow"
+        ]
+        
+        all_passed = True
+        for page in pages_to_test:
+            try:
+                response = self.session.get(f"{self.base_url}{page}")
+                success = response.status_code == 200
+                if not success:
+                    all_passed = False
+                    
+                self.log_test(f"Page Route: {page}", success, 
+                             f"Status: {response.status_code}")
+            except Exception as e:
+                self.log_test(f"Page Route: {page}", False, str(e))
+                all_passed = False
+                
+        return all_passed
     def test_database_connection(self):
         """Test database connection by attempting registration"""
         try:
