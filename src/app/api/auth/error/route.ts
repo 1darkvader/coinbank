@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   console.error('NextAuth Error:', error)
   
   // Always redirect to signin page with error parameter
-  const signinUrl = new URL('/auth/signin', request.url)
+  const signinUrl = new URL('/signin', request.url)
   if (error) {
     signinUrl.searchParams.set('error', error)
   }
