@@ -86,8 +86,8 @@ const authOptions: NextAuthOptions = {
     }
   },
   pages: {
-    signIn: '/auth/signin',
-    error: '/auth/signin' // Redirect errors back to signin page instead of error page
+    signIn: '/signin',
+    error: '/signin' // Redirect errors back to signin page instead of error page
   },
   session: {
     strategy: 'jwt',
