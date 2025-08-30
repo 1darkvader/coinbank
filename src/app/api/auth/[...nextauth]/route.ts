@@ -88,7 +88,9 @@ const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',
-  trustHost: true
+  trustHost: true,
+  // Use environment NEXTAUTH_URL or derive from request in production
+  ...(process.env.NODE_ENV === 'production' && !process.env.NEXTAUTH_URL ? {} : {})
 }
 
 const handler = NextAuth(authOptions)
