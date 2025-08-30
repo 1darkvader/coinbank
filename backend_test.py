@@ -351,17 +351,33 @@ class CoinBankAPITester:
         print("🚀 Starting CoinBank API Testing Suite")
         print("=" * 50)
         
-        # Test basic connectivity
-        if not self.test_homepage_load():
-            print("❌ Homepage not loading - stopping tests")
+        # Test API health and basic connectivity
+        if not self.test_api_health_check():
+            print("❌ API Health check failed - stopping tests")
             return False
             
-        # Test database and API functionality
+        # Test NextAuth endpoints
+        self.test_nextauth_session_endpoint()
+        self.test_nextauth_signin_endpoint()
+        self.test_nextauth_providers()
+        self.test_nextauth_credentials_login()
+        
+        # Test database connectivity through registration
         self.test_database_connection()
         self.test_user_registration()
         self.test_duplicate_registration()
         self.test_invalid_registration_data()
-        self.test_nextauth_endpoints()
+        
+        # Test API routes
+        self.test_crypto_prices_api()
+        self.test_portfolio_api_unauthorized()
+        self.test_user_profile_api_unauthorized()
+        
+        # Test configuration
+        self.test_environment_variables()
+        self.test_cors_configuration()
+        
+        # Test page routes
         self.test_page_routes()
         
         # Print summary
