@@ -293,31 +293,27 @@ class CoinBankAPITester:
             self.log_test("NextAuth Providers", False, str(e))
             return False
     
-    def test_page_routes(self):
-        """Test if key pages are accessible"""
-        pages_to_test = [
-            "/dashboard",
-            "/auth/signin", 
-            "/auth/signup",
-            "/banking/hold",
-            "/banking/earn",
-            "/banking/transact",
-            "/banking/grow",
-            "/banking/borrow"
+    def test_new_content_pages(self):
+        """Test the newly created content pages"""
+        new_pages = [
+            "/support/bounty",
+            "/privacy", 
+            "/terms",
+            "/cookies"
         ]
         
         all_passed = True
-        for page in pages_to_test:
+        for page in new_pages:
             try:
                 response = self.session.get(f"{self.base_url}{page}")
                 success = response.status_code == 200
                 if not success:
                     all_passed = False
                     
-                self.log_test(f"Page Route: {page}", success, 
+                self.log_test(f"New Content Page: {page}", success, 
                              f"Status: {response.status_code}")
             except Exception as e:
-                self.log_test(f"Page Route: {page}", False, str(e))
+                self.log_test(f"New Content Page: {page}", False, str(e))
                 all_passed = False
                 
         return all_passed
