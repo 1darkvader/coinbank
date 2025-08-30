@@ -359,7 +359,7 @@ class CoinBankAPITester:
         # Test NextAuth endpoints
         self.test_nextauth_session_endpoint()
         self.test_nextauth_signin_endpoint()
-        self.test_nextauth_providers()
+        self.test_nextauth_endpoints()
         self.test_nextauth_credentials_login()
         
         # Test database connectivity through registration
