@@ -483,6 +483,8 @@ class CoinBankAPITester:
         
         # Test API routes
         self.test_crypto_prices_api()
+        self.test_crypto_market_overview_api()
+        self.test_crypto_trending_api()
         self.test_portfolio_api_unauthorized()
         self.test_user_profile_api_unauthorized()
         
