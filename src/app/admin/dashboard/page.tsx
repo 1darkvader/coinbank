@@ -483,23 +483,38 @@ export default function AdminDashboard() {
                 <h3 className="text-lg font-bold text-white">Quick Actions</h3>
               </div>
               <div className="p-6 space-y-3">
-                <button className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left">
+                <button 
+                  onClick={() => handleQuickAction('users')}
+                  className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left"
+                >
                   <Users className="h-5 w-5 text-cyan-400" />
                   <span className="text-white">Manage Users</span>
                 </button>
-                <button className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left">
+                <button 
+                  onClick={() => handleQuickAction('analytics')}
+                  className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left"
+                >
                   <PieChart className="h-5 w-5 text-emerald-400" />
                   <span className="text-white">Analytics</span>
                 </button>
-                <button className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left">
+                <button 
+                  onClick={() => handleQuickAction('security')}
+                  className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left"
+                >
                   <Shield className="h-5 w-5 text-purple-400" />
                   <span className="text-white">Security Settings</span>
                 </button>
-                <button className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left">
+                <button 
+                  onClick={() => handleQuickAction('settings')}
+                  className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left"
+                >
                   <Settings className="h-5 w-5 text-orange-400" />
                   <span className="text-white">System Settings</span>
                 </button>
-                <button className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left">
+                <button 
+                  onClick={() => handleQuickAction('support')}
+                  className="w-full flex items-center gap-3 p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors text-left"
+                >
                   <MessageSquare className="h-5 w-5 text-blue-400" />
                   <span className="text-white">Support Tickets</span>
                 </button>
