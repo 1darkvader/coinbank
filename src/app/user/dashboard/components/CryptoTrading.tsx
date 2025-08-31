@@ -834,5 +834,6 @@ export default function CryptoTrading() {
         </div>
       )}
     </div>
-  )
+    )
+  }
 }
