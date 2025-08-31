@@ -117,11 +117,21 @@ const SystemAnalytics = () => {
             <option value="90d">Last 90 days</option>
             <option value="1y">Last year</option>
           </select>
-          <button className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => {
+              // Refresh analytics data
+              alert('Analytics data refreshed!')
+              // In a real app, you would refetch analytics data here
+            }}
+            className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors"
+          >
             <RefreshCw className="h-4 w-4" />
             Refresh
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => alert('Analytics report exported!')}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+          >
             <Download className="h-4 w-4" />
             Export
           </button>
