@@ -49,6 +49,32 @@ const InvestmentPortfolio = () => {
   const [isBalanceVisible, setIsBalanceVisible] = useState(true)
   const [selectedTimeframe, setSelectedTimeframe] = useState('24h')
   const [activeTab, setActiveTab] = useState('overview')
+  const [loading, setLoading] = useState(true)
+  const [cryptoPrices, setCryptoPrices] = useState<any>({})
+
+  // Fetch real crypto prices
+  useEffect(() => {
+    const fetchCryptoPrices = async () => {
+      try {
+        const response = await fetch('/api/crypto/prices')
+        const result = await response.json()
+        
+        if (result.success) {
+          setCryptoPrices(result.data)
+        }
+      } catch (error) {
+        console.error('Failed to fetch crypto prices:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCryptoPrices()
+    
+    // Update prices every 60 seconds
+    const interval = setInterval(fetchCryptoPrices, 60000)
+    return () => clearInterval(interval)
+  }, [])
 
   // Sample portfolio data
   const portfolioSummary: PortfolioSummary = {
