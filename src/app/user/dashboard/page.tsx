@@ -46,9 +46,12 @@ import {
   CreditCard as CardIcon,
   Banknote
 } from 'lucide-react'
+// Import enhanced components
 import MoneyTransfer from './components/MoneyTransfer'
 import CryptoTrading from './components/CryptoTrading'
 import BillPayment from './components/BillPayment'
+import InvestmentPortfolio from './components/InvestmentPortfolio'
+import CardManagement from './components/CardManagement'
 
 interface UserSession {
   username: string
