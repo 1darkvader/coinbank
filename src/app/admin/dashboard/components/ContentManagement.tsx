@@ -576,7 +576,10 @@ const ContentManagement = () => {
               <Mail className="h-16 w-16 text-gray-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-white mb-2">Email Templates</h3>
               <p className="text-gray-400 mb-6">Manage automated email templates and notifications</p>
-              <button className="flex items-center gap-2 mx-auto px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors">
+              <button 
+                onClick={() => alert('Email template creator would open here')}
+                className="flex items-center gap-2 mx-auto px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors"
+              >
                 <Plus className="h-4 w-4" />
                 Create Template
               </button>
