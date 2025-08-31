@@ -345,7 +345,10 @@ const UserManagement = () => {
           <h2 className="text-2xl font-bold text-white">User Management</h2>
           <p className="text-gray-400 mt-1">Manage user accounts, permissions, and settings</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-medium transition-colors">
+        <button 
+          onClick={() => alert('Create new user form would open here')}
+          className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-medium transition-colors"
+        >
           <Plus className="h-4 w-4" />
           Add User
         </button>
