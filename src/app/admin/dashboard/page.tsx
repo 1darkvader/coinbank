@@ -42,6 +42,7 @@ import TransactionMonitoring from './components/TransactionMonitoring'
 import SystemAnalytics from './components/SystemAnalytics'
 import SecurityControls from './components/SecurityControls'
 import ContentManagement from './components/ContentManagement'
+import RealtimeMonitoring from './components/RealtimeMonitoring'
 
 export default function AdminDashboard() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('7d')
