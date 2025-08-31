@@ -119,6 +119,23 @@ export default function AdminDashboard() {
     }
   }
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (showProfileDropdown) {
+        const dropdown = document.getElementById('profile-dropdown')
+        if (dropdown && !dropdown.contains(event.target as Node)) {
+          setShowProfileDropdown(false)
+        }
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showProfileDropdown])
+
   const recentUsers = [
     { id: 1, name: 'Sarah Johnson', email: 'sarah@example.com', status: 'Active', joined: '2 hours ago', balance: '$45,230' },
     { id: 2, name: 'Mike Chen', email: 'mike@example.com', status: 'Active', joined: '5 hours ago', balance: '$23,100' },
