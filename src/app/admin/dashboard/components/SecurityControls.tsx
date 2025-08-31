@@ -492,7 +492,10 @@ const SecurityControls = () => {
           <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-white">Security Rules Configuration</h3>
-              <button className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors">
+              <button 
+                onClick={() => alert('Add new security rule form would open here')}
+                className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors"
+              >
                 <Shield className="h-4 w-4" />
                 Add Rule
               </button>
