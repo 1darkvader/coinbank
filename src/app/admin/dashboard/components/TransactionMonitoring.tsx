@@ -488,13 +488,20 @@ const TransactionMonitoring = () => {
             <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
           </button>
 
-          <button className="flex items-center gap-2 px-4 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => {
+              // Refresh transaction data
+              alert('Transaction data refreshed!')
+              // In a real app, you would refetch data here
+            }}
+            className="flex items-center gap-2 px-4 py-3 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors"
+          >
             <RefreshCw className="h-4 w-4" />
             Refresh
           </button>
 
           <button 
-            onClick={() => alert('Transaction data exported successfully!')}
+            onClick={() => alert('Transaction export started!')}
             className="flex items-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
           >
             <Download className="h-4 w-4" />
