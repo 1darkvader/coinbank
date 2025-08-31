@@ -32,7 +32,8 @@ import {
   Calendar,
   Bookmark,
   MessageSquare,
-  FileText
+  FileText,
+  User
 } from 'lucide-react'
 
 // Import admin management components
