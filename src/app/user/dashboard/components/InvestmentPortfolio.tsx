@@ -434,7 +434,7 @@ const InvestmentPortfolio = () => {
                 </tr>
               </thead>
               <tbody>
-                {assets.map((asset) => (
+                {(currentPortfolio.assets || assets).map((asset) => (
                   <tr key={asset.id} className="border-t border-gray-800 hover:bg-gray-800/30 transition-colors">
                     <td className="p-4">
                       <div className="flex items-center gap-3">
