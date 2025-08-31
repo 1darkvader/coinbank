@@ -313,7 +313,10 @@ const ContentManagement = () => {
           <h2 className="text-2xl font-bold text-white">Content Management</h2>
           <p className="text-gray-400 mt-1">Manage pages, announcements, and system content</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors">
+        <button 
+          onClick={() => alert('Create new content form would open here')}
+          className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors"
+        >
           <Plus className="h-4 w-4" />
           Create Content
         </button>
