@@ -149,19 +149,79 @@ export default function CryptoTrading() {
     }
   ])
 
-  // Simulate real-time price updates
+  // Fetch real crypto data from CoinGecko API
   useEffect(() => {
+    const fetchCryptoData = async () => {
+      try {
+        const response = await fetch('/api/crypto/prices')
+        const result = await response.json()
+        
+        if (result.success) {
+          // Transform the data to match our interface
+          const transformedData = Object.entries(result.data).map(([id, data]: [string, any]) => ({
+            id,
+            symbol: data.symbol,
+            name: data.name,
+            price: data.price,
+            change24h: data.change24h,
+            changePercent24h: data.changePercent24h,
+            marketCap: data.marketCap,
+            volume24h: data.volume24h,
+            logo: data.logo || getDefaultLogo(data.symbol),
+            trending: data.rank <= 5
+          }))
+          
+          setCryptoData(transformedData)
+        }
+      } catch (error) {
+        console.error('Failed to fetch crypto data:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    const fetchMarketOverview = async () => {
+      try {
+        const response = await fetch('/api/crypto/market-overview')
+        const result = await response.json()
+        
+        if (result.success) {
+          setMarketOverview(result.data)
+        }
+      } catch (error) {
+        console.error('Failed to fetch market overview:', error)
+      }
+    }
+
+    // Initial fetch
+    fetchCryptoData()
+    fetchMarketOverview()
+
+    // Set up polling every 60 seconds (respecting free API limits)
     const interval = setInterval(() => {
-      setCryptoData(prev => prev.map(asset => ({
-        ...asset,
-        price: asset.price + (Math.random() - 0.5) * (asset.price * 0.001),
-        change24h: asset.change24h + (Math.random() - 0.5) * 10,
-        changePercent24h: asset.changePercent24h + (Math.random() - 0.5) * 0.1
-      })))
-    }, 3000)
+      fetchCryptoData()
+      fetchMarketOverview()
+    }, 60000)
 
     return () => clearInterval(interval)
   }, [])
+
+  // Helper function to get default logos
+  const getDefaultLogo = (symbol: string) => {
+    const logoMap: { [key: string]: string } = {
+      'BTC': '₿',
+      'ETH': 'Ξ',
+      'SOL': '◎',
+      'ADA': '₳',
+      'DOT': '⬟',
+      'MATIC': '⬟',
+      'LINK': '🔗',
+      'LTC': 'Ł',
+      'XRP': '⊗',
+      'DOGE': 'Ð'
+    }
+    return logoMap[symbol] || '●'
+  }
 
   const handleTrade = () => {
     if (!selectedAsset || !tradeAmount) return
