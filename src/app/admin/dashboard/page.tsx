@@ -81,7 +81,8 @@ export default function AdminDashboard() {
   ]
 
   const navigationItems = [
-    { id: 'overview', label: 'Overview', icon: <BarChart3 className="h-5 w-5" /> },
+    { id: 'home', label: 'Home', icon: <Globe className="h-5 w-5" /> },
+    { id: 'overview', label: 'Dashboard', icon: <BarChart3 className="h-5 w-5" /> },
     { id: 'users', label: 'User Management', icon: <Users className="h-5 w-5" /> },
     { id: 'transactions', label: 'Transaction Monitoring', icon: <Activity className="h-5 w-5" /> },
     { id: 'analytics', label: 'System Analytics', icon: <PieChart className="h-5 w-5" /> },
