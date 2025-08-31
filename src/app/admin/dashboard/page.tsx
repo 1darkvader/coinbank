@@ -52,22 +52,22 @@ export default function AdminDashboard() {
   const adminStats = [
     {
       title: 'Total Users',
-      value: '12,847',
-      change: '+12%',
+      value: '1',
+      change: '+100%',
       trend: 'up',
       icon: <Users className="h-6 w-6" />
     },
     {
       title: 'Total Revenue',
-      value: '$2.4M',
+      value: '$7.3K',
       change: '+18%',
       trend: 'up',
       icon: <DollarSign className="h-6 w-6" />
     },
     {
       title: 'Active Trades',
-      value: '8,924',
-      change: '+7%',
+      value: '2',
+      change: '+100%',
       trend: 'up',
       icon: <TrendingUp className="h-6 w-6" />
     },
