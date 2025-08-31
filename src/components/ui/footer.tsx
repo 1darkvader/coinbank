@@ -38,11 +38,11 @@ export function Footer() {
     {
       title: 'Legal',
       links: [
-        { name: 'Terms of Service', href: '/legal/terms' },
-        { name: 'Privacy Policy', href: '/legal/privacy' },
+        { name: 'Terms of Service', href: '/terms' },
+        { name: 'Privacy Policy', href: '/privacy' },
         { name: 'Disclosures', href: '/about/disclosures' },
-        { name: 'Cookie Policy', href: '/legal/cookies' },
-        { name: 'Security', href: '/security/system' }
+        { name: 'Cookie Policy', href: '/cookies' },
+        { name: 'Compliance', href: '/company/compliance' }
       ]
     }
   ]
