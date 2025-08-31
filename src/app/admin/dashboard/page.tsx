@@ -465,8 +465,23 @@ export default function AdminDashboard() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        )}
+
+        {/* User Management Section */}
+        {activeSection === 'users' && <UserManagement />}
+
+        {/* Transaction Monitoring Section */}
+        {activeSection === 'transactions' && <TransactionMonitoring />}
+
+        {/* System Analytics Section */}
+        {activeSection === 'analytics' && <SystemAnalytics />}
+
+        {/* Security Controls Section */}
+        {activeSection === 'security' && <SecurityControls />}
+
+        {/* Content Management Section */}
+        {activeSection === 'content' && <ContentManagement />}
       </div>
     </div>
   )
