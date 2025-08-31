@@ -137,19 +137,12 @@ export default function AdminDashboard() {
   }, [showProfileDropdown])
 
   const recentUsers = [
-    { id: 1, name: 'Sarah Johnson', email: 'sarah@example.com', status: 'Active', joined: '2 hours ago', balance: '$45,230' },
-    { id: 2, name: 'Mike Chen', email: 'mike@example.com', status: 'Active', joined: '5 hours ago', balance: '$23,100' },
-    { id: 3, name: 'Emma Davis', email: 'emma@example.com', status: 'Pending', joined: '1 day ago', balance: '$67,890' },
-    { id: 4, name: 'Alex Rodriguez', email: 'alex@example.com', status: 'Active', joined: '2 days ago', balance: '$12,450' },
-    { id: 5, name: 'Lisa Wang', email: 'lisa@example.com', status: 'Suspended', joined: '3 days ago', balance: '$89,200' }
+    { id: 1, name: 'John Smith', email: 'john@example.com', status: 'Active', joined: '2 hours ago', balance: '$25,450' }
   ]
 
   const recentTransactions = [
-    { id: 1, user: 'Sarah Johnson', type: 'Buy', asset: 'BTC', amount: '$5,000', status: 'Completed', time: '2 min ago' },
-    { id: 2, user: 'Mike Chen', type: 'Sell', asset: 'ETH', amount: '$2,300', status: 'Completed', time: '5 min ago' },
-    { id: 3, user: 'Emma Davis', type: 'Transfer', asset: 'USD', amount: '$1,500', status: 'Pending', time: '10 min ago' },
-    { id: 4, user: 'Alex Rodriguez', type: 'Buy', asset: 'SOL', amount: '$800', status: 'Completed', time: '15 min ago' },
-    { id: 5, user: 'Lisa Wang', type: 'Withdraw', asset: 'USD', amount: '$10,000', status: 'Review', time: '20 min ago' }
+    { id: 1, user: 'John Smith', type: 'Buy', asset: 'BTC', amount: '$5,000', status: 'Completed', time: '2 min ago' },
+    { id: 2, user: 'John Smith', type: 'Sell', asset: 'ETH', amount: '$2,300', status: 'Completed', time: '1 hour ago' }
   ]
 
   const systemAlerts = [
