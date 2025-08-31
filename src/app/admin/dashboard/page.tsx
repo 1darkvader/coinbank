@@ -163,36 +163,63 @@ export default function AdminDashboard() {
       </div>
 
       <div className="max-w-8xl mx-auto px-6 py-8">
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {adminStats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-gray-900/50 backdrop-blur rounded-2xl p-6 border border-gray-800"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-cyan-400">
-                  {stat.icon}
-                </div>
-                <span className={`text-sm font-medium ${
-                  stat.trend === 'up' ? 'text-emerald-400' : 'text-red-400'
-                } flex items-center gap-1`}>
-                  {stat.trend === 'up' ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
-                  {stat.change}
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-1">{stat.value}</h3>
-              <p className="text-gray-400 text-sm">{stat.title}</p>
-            </motion.div>
-          ))}
+        {/* Navigation Tabs */}
+        <div className="mb-8">
+          <div className="flex space-x-1 bg-gray-900/50 p-1 rounded-xl border border-gray-800 overflow-x-auto">
+            {navigationItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveSection(item.id)}
+                className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors whitespace-nowrap ${
+                  activeSection === item.id
+                    ? 'bg-cyan-600 text-white'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                }`}
+              >
+                {item.icon}
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-8 space-y-8">
+        {/* Overview Section - Original Dashboard */}
+        {activeSection === 'overview' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="space-y-8"
+          >
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {adminStats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-gray-900/50 backdrop-blur rounded-2xl p-6 border border-gray-800"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-cyan-400">
+                      {stat.icon}
+                    </div>
+                    <span className={`text-sm font-medium ${
+                      stat.trend === 'up' ? 'text-emerald-400' : 'text-red-400'
+                    } flex items-center gap-1`}>
+                      {stat.trend === 'up' ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
+                      {stat.change}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-1">{stat.value}</h3>
+                  <p className="text-gray-400 text-sm">{stat.title}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="grid lg:grid-cols-12 gap-8">
+              {/* Main Content */}
+              <div className="lg:col-span-8 space-y-8">
             {/* Recent Transactions */}
             <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800">
               <div className="p-6 border-b border-gray-800">
