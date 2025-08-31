@@ -45,6 +45,7 @@ import ContentManagement from './components/ContentManagement'
 export default function AdminDashboard() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('7d')
   const [activeSection, setActiveSection] = useState('overview')
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false)
   
   // Sample admin data
   const adminStats = [
