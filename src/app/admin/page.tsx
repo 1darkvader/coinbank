@@ -17,8 +17,7 @@ export default function AdminLogin() {
 
   // Simple admin credentials for demo
   const adminAccounts = [
-    { username: 'admin', password: 'admin123', name: 'System Administrator' },
-    { username: 'user', password: 'user123', name: 'John Smith (User Demo)' }
+    { username: 'alex@coinbank.com', password: 'password123', name: 'Alex Rodriguez - CoinBank Admin' }
   ]
 
   const handleLogin = (e: React.FormEvent) => {
