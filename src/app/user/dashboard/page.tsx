@@ -62,6 +62,7 @@ interface UserSession {
 export default function UserDashboard() {
   const [userSession, setUserSession] = useState<UserSession | null>(null)
   const [activeSection, setActiveSection] = useState('accounts')
+  const [paymentSubSection, setPaymentSubSection] = useState('transfers') // transfers, bills
   const [balanceVisible, setBalanceVisible] = useState(true)
 
   useEffect(() => {
