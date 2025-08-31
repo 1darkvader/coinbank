@@ -276,14 +276,16 @@ export default function UserDashboard() {
 
   const renderInvestSection = () => (
     <div className="space-y-8">
-      {/* Portfolio Overview */}
+      <CryptoTrading />
+      
+      {/* Original Portfolio Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-8"
       >
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white">Portfolio</h2>
+          <h2 className="text-2xl font-bold text-white">Traditional Portfolio</h2>
           <select className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-1 text-white text-sm">
             <option>High Risk</option>
             <option>Medium Risk</option>
@@ -297,24 +299,6 @@ export default function UserDashboard() {
             <p className="text-emerald-400 mb-8">+${portfolioData.todayChange.toLocaleString()} today</p>
 
             <div className="space-y-6">
-              <div>
-                <h4 className="text-xl font-semibold text-white mb-4">Crypto</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Bitcoin</span>
-                    <span className="text-white font-medium">${portfolioData.crypto.bitcoin.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">ETH</span>
-                    <span className="text-white font-medium">{portfolioData.crypto.eth.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Solana</span>
-                    <span className="text-white font-medium">{portfolioData.crypto.solana.toLocaleString()}</span>
-                  </div>
-                </div>
-              </div>
-
               <div>
                 <h4 className="text-xl font-semibold text-white mb-4">Stocks</h4>
                 <div className="space-y-3">
@@ -353,8 +337,8 @@ export default function UserDashboard() {
                         strokeDasharray="75 25" strokeLinecap="round" />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-white text-sm">Crypto</span>
-                <span className="text-emerald-400 text-lg font-bold">30%</span>
+                <span className="text-white text-sm">Stocks & NFT</span>
+                <span className="text-emerald-400 text-lg font-bold">25%</span>
               </div>
             </div>
           </div>
@@ -362,7 +346,7 @@ export default function UserDashboard() {
 
         <div className="mt-8 pt-6 border-t border-gray-700">
           <button className="w-full p-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors">
-            Invest Now
+            Explore Traditional Investments
           </button>
         </div>
       </motion.div>
