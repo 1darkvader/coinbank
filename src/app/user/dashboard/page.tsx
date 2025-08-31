@@ -583,13 +583,11 @@ export default function UserDashboard() {
           {(activeSection === 'rewards' || activeSection === 'community') && (
             <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                {activeSection === 'payments' && <Zap className="h-8 w-8 text-white" />}
                 {activeSection === 'rewards' && <Gift className="h-8 w-8 text-white" />}
                 {activeSection === 'community' && <Globe className="h-8 w-8 text-white" />}
               </div>
               <h3 className="text-2xl font-bold text-white mb-2 capitalize">{activeSection}</h3>
               <p className="text-gray-400 mb-6">
-                {activeSection === 'payments' && 'Payment features coming soon! Send money, pay bills, and manage transfers.'}
                 {activeSection === 'rewards' && 'Rewards program coming soon! Earn cashback and exclusive benefits.'}
                 {activeSection === 'community' && 'Community features coming soon! Connect with other users and share insights.'}
               </p>
