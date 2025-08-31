@@ -88,15 +88,103 @@ class CoinBankAPITester:
                     data["success"] == True and
                     "data" in data and
                     "timestamp" in data and
-                    "bitcoin" in data["data"] and
-                    "ethereum" in data["data"]
+                    "source" in data and
+                    isinstance(data["data"], dict) and
+                    len(data["data"]) > 0
                 )
                 
+                # Check if we have expected crypto data structure
+                if success and data["data"]:
+                    first_coin = next(iter(data["data"].values()))
+                    success = (
+                        "symbol" in first_coin and
+                        "price" in first_coin and
+                        "name" in first_coin and
+                        "changePercent24h" in first_coin
+                    )
+                
             self.log_test("Crypto Prices API", success, 
-                         f"Status: {response.status_code}")
+                         f"Status: {response.status_code}, Source: {data.get('source', 'unknown') if success else 'N/A'}")
             return success
         except Exception as e:
             self.log_test("Crypto Prices API", False, str(e))
+            return False
+    
+    def test_crypto_market_overview_api(self):
+        """Test crypto market overview API endpoint"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/crypto/market-overview")
+            success = response.status_code == 200
+            
+            if success:
+                data = response.json()
+                success = (
+                    "success" in data and 
+                    data["success"] == True and
+                    "data" in data and
+                    "timestamp" in data and
+                    "source" in data
+                )
+                
+                # Check market overview data structure
+                if success and "data" in data:
+                    market_data = data["data"]
+                    success = (
+                        "totalMarketCap" in market_data and
+                        "totalVolume24h" in market_data and
+                        "btcDominance" in market_data and
+                        "marketCapChange24h" in market_data and
+                        "activeCoins" in market_data and
+                        "markets" in market_data
+                    )
+                
+            self.log_test("Crypto Market Overview API", success, 
+                         f"Status: {response.status_code}, Source: {data.get('source', 'unknown') if success else 'N/A'}")
+            return success
+        except Exception as e:
+            self.log_test("Crypto Market Overview API", False, str(e))
+            return False
+    
+    def test_crypto_trending_api(self):
+        """Test crypto trending API endpoint"""
+        try:
+            response = self.session.get(f"{self.base_url}/api/crypto/trending")
+            success = response.status_code == 200
+            
+            if success:
+                data = response.json()
+                success = (
+                    "success" in data and 
+                    data["success"] == True and
+                    "data" in data and
+                    "timestamp" in data and
+                    "source" in data
+                )
+                
+                # Check trending data structure
+                if success and "data" in data:
+                    trending_data = data["data"]
+                    success = (
+                        "coins" in trending_data and
+                        "lastUpdated" in trending_data and
+                        isinstance(trending_data["coins"], list) and
+                        len(trending_data["coins"]) > 0
+                    )
+                    
+                    # Check first coin structure
+                    if success and trending_data["coins"]:
+                        first_coin = trending_data["coins"][0]
+                        success = (
+                            "id" in first_coin and
+                            "name" in first_coin and
+                            "symbol" in first_coin
+                        )
+                
+            self.log_test("Crypto Trending API", success, 
+                         f"Status: {response.status_code}, Source: {data.get('source', 'unknown') if success else 'N/A'}")
+            return success
+        except Exception as e:
+            self.log_test("Crypto Trending API", False, str(e))
             return False
     
     def test_portfolio_api_unauthorized(self):
