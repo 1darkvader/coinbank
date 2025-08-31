@@ -182,103 +182,293 @@ export default function UserDashboard() {
 
   const renderAccountsSection = () => (
     <div className="space-y-8">
-      {/* Total Balance Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-8"
-      >
-        <h2 className="text-2xl font-bold text-white mb-6">Total Balance</h2>
-        
-        <div className="space-y-6">
-          <div className="flex items-center justify-between p-6 bg-gray-800/50 rounded-xl">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-blue-500/20 rounded-full">
-                <Banknote className="h-6 w-6 text-blue-400" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Fiat Wallet</h3>
-                <p className="text-gray-400">Multi-currency account</p>
-              </div>
+      {/* Enhanced Account Overview */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gray-900/50 backdrop-blur rounded-2xl p-6 border border-gray-800"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <div className="p-2 bg-emerald-500/20 rounded-lg">
+              <Wallet className="h-5 w-5 text-emerald-400" />
             </div>
-            <div className="text-right">
-              <p className="text-2xl font-bold text-white">${accountData.fiatWallet.toLocaleString()}</p>
-            </div>
+            <span className="text-emerald-400 text-sm font-medium">+5.2%</span>
           </div>
+          <h3 className="text-2xl font-bold text-white mb-1">$25,450.75</h3>
+          <p className="text-gray-400 text-sm">Total Balance</p>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-center justify-between p-4 bg-gray-800/30 rounded-lg">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="text-white">USD Account</span>
-              </div>
-              <span className="text-emerald-400 font-semibold">+$850</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="bg-gray-900/50 backdrop-blur rounded-2xl p-6 border border-gray-800"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <div className="p-2 bg-blue-500/20 rounded-lg">
+              <TrendingUp className="h-5 w-5 text-blue-400" />
             </div>
-            
-            <div className="flex items-center justify-between p-4 bg-gray-800/30 rounded-lg">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                <span className="text-white">EUR Account</span>
-              </div>
-              <span className="text-emerald-400 font-semibold">+€420</span>
-            </div>
+            <span className="text-blue-400 text-sm font-medium">Monthly</span>
           </div>
+          <h3 className="text-2xl font-bold text-white mb-1">$3,247.85</h3>
+          <p className="text-gray-400 text-sm">Profit This Month</p>
+        </motion.div>
 
-          <div className="flex items-center justify-between p-4 bg-gray-800/30 rounded-lg">
-            <span className="text-white">Interest Paid <span className="text-gray-400">this month</span></span>
-            <span className="text-white font-semibold">${accountData.interestPaid} this month</span>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Transaction History */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-8"
-      >
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white">Transaction History</h2>
-          <button className="text-gray-400 hover:text-white transition-colors">View All</button>
-        </div>
-
-        <div className="space-y-4">
-          {transactions.map((transaction) => (
-            <div key={transaction.id} className="flex items-center justify-between p-4 hover:bg-gray-800/30 rounded-lg transition-colors">
-              <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-full ${
-                  transaction.type === 'income' ? 'bg-emerald-500/20' :
-                  transaction.type === 'withdrawal' ? 'bg-cyan-500/20' :
-                  transaction.type === 'purchase' ? 'bg-orange-500/20' :
-                  'bg-purple-500/20'
-                }`}>
-                  {transaction.icon}
-                </div>
-                <div>
-                  <h3 className="text-white font-medium">{transaction.company}</h3>
-                  <p className="text-gray-400 text-sm">{transaction.description}</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="text-white font-medium">{transaction.date}</p>
-                <p className={`text-sm ${
-                  transaction.amount > 0 ? 'text-emerald-400' : 'text-white'
-                }`}>
-                  ${Math.abs(transaction.amount).toLocaleString()}
-                </p>
-              </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-gray-900/50 backdrop-blur rounded-2xl p-6 border border-gray-800"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <div className="p-2 bg-purple-500/20 rounded-lg">
+              <BarChart3 className="h-5 w-5 text-purple-400" />
             </div>
-          ))}
-        </div>
+            <span className="text-purple-400 text-sm font-medium">Active</span>
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-1">12</h3>
+          <p className="text-gray-400 text-sm">Open Positions</p>
+        </motion.div>
 
-        <div className="mt-6 pt-6 border-t border-gray-700">
-          <button className="w-full flex items-center justify-center gap-2 p-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors">
-            <Plus className="h-4 w-4" />
-            Add Account
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="bg-gray-900/50 backdrop-blur rounded-2xl p-6 border border-gray-800"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <div className="p-2 bg-cyan-500/20 rounded-lg">
+              <Shield className="h-5 w-5 text-cyan-400" />
+            </div>
+            <span className="text-emerald-400 text-sm font-medium">Secured</span>
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-1">100%</h3>
+          <p className="text-gray-400 text-sm">Portfolio Insured</p>
+        </motion.div>
+      </div>
+
+      {/* Quick Actions Grid */}
+      <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
+        <h3 className="text-xl font-bold text-white mb-6">Quick Actions</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <button
+            onClick={() => setActiveSection('payments')}
+            className="flex flex-col items-center gap-3 p-4 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors group"
+          >
+            <div className="p-3 bg-emerald-500/20 rounded-full group-hover:bg-emerald-500/30 transition-colors">
+              <Send className="h-6 w-6 text-emerald-400" />
+            </div>
+            <span className="text-white font-medium">Send Money</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSection('invest')}
+            className="flex flex-col items-center gap-3 p-4 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors group"
+          >
+            <div className="p-3 bg-blue-500/20 rounded-full group-hover:bg-blue-500/30 transition-colors">
+              <TrendingUp className="h-6 w-6 text-blue-400" />
+            </div>
+            <span className="text-white font-medium">Invest</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSection('card')}
+            className="flex flex-col items-center gap-3 p-4 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors group"
+          >
+            <div className="p-3 bg-purple-500/20 rounded-full group-hover:bg-purple-500/30 transition-colors">
+              <CardIcon className="h-6 w-6 text-purple-400" />
+            </div>
+            <span className="text-white font-medium">My Cards</span>
+          </button>
+
+          <button
+            onClick={() => alert('Savings feature coming soon!')}
+            className="flex flex-col items-center gap-3 p-4 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors group"
+          >
+            <div className="p-3 bg-cyan-500/20 rounded-full group-hover:bg-cyan-500/30 transition-colors">
+              <Target className="h-6 w-6 text-cyan-400" />
+            </div>
+            <span className="text-white font-medium">Savings Goals</span>
+          </button>
+
+          <button
+            onClick={() => alert('Analytics dashboard coming soon!')}
+            className="flex flex-col items-center gap-3 p-4 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors group"
+          >
+            <div className="p-3 bg-orange-500/20 rounded-full group-hover:bg-orange-500/30 transition-colors">
+              <BarChart3 className="h-6 w-6 text-orange-400" />
+            </div>
+            <span className="text-white font-medium">Analytics</span>
+          </button>
+
+          <button
+            onClick={() => alert('Rewards program coming soon!')}
+            className="flex flex-col items-center gap-3 p-4 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors group"
+          >
+            <div className="p-3 bg-pink-500/20 rounded-full group-hover:bg-pink-500/30 transition-colors">
+              <Star className="h-6 w-6 text-pink-400" />
+            </div>
+            <span className="text-white font-medium">Rewards</span>
           </button>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Enhanced Portfolio Overview */}
+      <div className="grid lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-white">Recent Activity</h3>
+            <button className="text-emerald-400 hover:text-emerald-300 text-sm font-medium">View All</button>
+          </div>
+          <div className="space-y-4">
+            {[
+              { action: 'Bought Bitcoin', amount: '+0.125 BTC', value: '$5,200', time: '2 hours ago', type: 'buy' },
+              { action: 'Sold Ethereum', amount: '-1.5 ETH', value: '$2,340', time: '1 day ago', type: 'sell' },
+              { action: 'Received Transfer', amount: '+$1,500', value: 'USD', time: '2 days ago', type: 'receive' },
+              { action: 'Card Payment', amount: '-$89.99', value: 'Amazon', time: '3 days ago', type: 'spend' }
+            ].map((activity, index) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-full ${
+                    activity.type === 'buy' ? 'bg-emerald-500/20' :
+                    activity.type === 'sell' ? 'bg-red-500/20' :
+                    activity.type === 'receive' ? 'bg-blue-500/20' :
+                    'bg-orange-500/20'
+                  }`}>
+                    {activity.type === 'buy' && <Plus className="h-4 w-4 text-emerald-400" />}
+                    {activity.type === 'sell' && <Minus className="h-4 w-4 text-red-400" />}
+                    {activity.type === 'receive' && <ArrowDownRight className="h-4 w-4 text-blue-400" />}
+                    {activity.type === 'spend' && <CardIcon className="h-4 w-4 text-orange-400" />}
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">{activity.action}</p>
+                    <p className="text-gray-400 text-sm">{activity.time}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-white font-medium">{activity.amount}</p>
+                  <p className="text-gray-400 text-sm">{activity.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
+          <h3 className="text-xl font-bold text-white mb-6">Market Alerts</h3>
+          <div className="space-y-4">
+            <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <TrendingUp className="h-4 w-4 text-emerald-400" />
+                <span className="text-emerald-400 font-medium text-sm">Price Alert</span>
+              </div>
+              <p className="text-white text-sm">BTC reached your target of $31,000</p>
+              <p className="text-gray-400 text-xs mt-1">5 minutes ago</p>
+            </div>
+
+            <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Bell className="h-4 w-4 text-blue-400" />
+                <span className="text-blue-400 font-medium text-sm">Portfolio Alert</span>
+              </div>
+              <p className="text-white text-sm">Monthly profit goal achieved!</p>
+              <p className="text-gray-400 text-xs mt-1">2 hours ago</p>
+            </div>
+
+            <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Shield className="h-4 w-4 text-purple-400" />
+                <span className="text-purple-400 font-medium text-sm">Security</span>
+              </div>
+              <p className="text-white text-sm">New device login detected</p>
+              <p className="text-gray-400 text-xs mt-1">1 day ago</p>
+            </div>
+          </div>
+
+          <button className="w-full mt-4 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors">
+            Manage Alerts
+          </button>
+        </div>
+      </div>
+
+      {/* Account Management Tools */}
+      <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
+        <h3 className="text-xl font-bold text-white mb-6">Account Management</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div>
+            <h4 className="text-white font-semibold mb-3">Security Settings</h4>
+            <div className="space-y-2">
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Lock className="h-4 w-4 text-cyan-400" />
+                  <span className="text-white">2FA Settings</span>
+                </div>
+              </button>
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Shield className="h-4 w-4 text-emerald-400" />
+                  <span className="text-white">Login History</span>
+                </div>
+              </button>
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Eye className="h-4 w-4 text-purple-400" />
+                  <span className="text-white">Privacy Controls</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-3">Account Services</h4>
+            <div className="space-y-2">
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Download className="h-4 w-4 text-blue-400" />
+                  <span className="text-white">Export Data</span>
+                </div>
+              </button>
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Calendar className="h-4 w-4 text-orange-400" />
+                  <span className="text-white">Tax Documents</span>
+                </div>
+              </button>
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Settings className="h-4 w-4 text-gray-400" />
+                  <span className="text-white">Preferences</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-3">Support & Help</h4>
+            <div className="space-y-2">
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Bell className="h-4 w-4 text-emerald-400" />
+                  <span className="text-white">Contact Support</span>
+                </div>
+              </button>
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Search className="h-4 w-4 text-cyan-400" />
+                  <span className="text-white">Help Center</span>
+                </div>
+              </button>
+              <button className="w-full text-left p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                <div className="flex items-center gap-3">
+                  <Star className="h-4 w-4 text-yellow-400" />
+                  <span className="text-white">Feedback</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 
