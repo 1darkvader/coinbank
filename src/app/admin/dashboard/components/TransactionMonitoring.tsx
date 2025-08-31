@@ -493,7 +493,10 @@ const TransactionMonitoring = () => {
             Refresh
           </button>
 
-          <button className="flex items-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => alert('Transaction data exported successfully!')}
+            className="flex items-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+          >
             <Download className="h-4 w-4" />
             Export
           </button>
