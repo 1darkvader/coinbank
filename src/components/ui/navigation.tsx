@@ -288,7 +288,7 @@ export function Navigation() {
                 </div>
               ) : (
                 <>
-                  <Link href="/signin">
+                  <Link href="/user">
                     <Button variant="ghost" className="professional-nav-button">
                       Sign In
                     </Button>
