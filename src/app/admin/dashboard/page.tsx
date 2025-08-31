@@ -179,14 +179,58 @@ export default function AdminDashboard() {
                 </button>
               </div>
               
-              <div className="flex items-center gap-3 pl-4 border-l border-gray-700">
+              <div className="flex items-center gap-3 pl-4 border-l border-gray-700 relative">
                 <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
                   <span className="text-white font-semibold text-sm">A</span>
                 </div>
-                <div className="text-sm">
-                  <p className="text-white font-medium">Admin User</p>
-                  <p className="text-gray-400">Super Admin</p>
-                </div>
+                <button 
+                  onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+                  className="text-left hover:bg-gray-800 rounded-lg p-1 transition-colors"
+                >
+                  <div className="text-sm">
+                    <p className="text-white font-medium">Admin User</p>
+                    <p className="text-gray-400">Super Admin</p>
+                  </div>
+                </button>
+
+                {/* Profile Dropdown */}
+                {showProfileDropdown && (
+                  <div className="absolute top-full right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-lg shadow-xl z-50">
+                    <div className="p-2">
+                      <button 
+                        onClick={() => {
+                          setShowProfileDropdown(false)
+                          alert('Profile settings coming soon!')
+                        }}
+                        className="w-full text-left px-3 py-2 text-gray-300 hover:bg-gray-800 rounded-lg transition-colors flex items-center gap-2"
+                      >
+                        <Settings className="h-4 w-4" />
+                        Profile Settings
+                      </button>
+                      <button 
+                        onClick={() => {
+                          setShowProfileDropdown(false)
+                          alert('Admin preferences coming soon!')
+                        }}
+                        className="w-full text-left px-3 py-2 text-gray-300 hover:bg-gray-800 rounded-lg transition-colors flex items-center gap-2"
+                      >
+                        <User className="h-4 w-4" />
+                        Preferences
+                      </button>
+                      <hr className="border-gray-700 my-2" />
+                      <button 
+                        onClick={() => {
+                          setShowProfileDropdown(false)
+                          handleLogout()
+                        }}
+                        className="w-full text-left px-3 py-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors flex items-center gap-2"
+                      >
+                        <ArrowDownRight className="h-4 w-4 rotate-90" />
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
