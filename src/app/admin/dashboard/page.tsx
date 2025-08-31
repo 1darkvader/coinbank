@@ -469,6 +469,9 @@ export default function AdminDashboard() {
           </motion.div>
         )}
 
+        {/* Live Monitoring Section */}
+        {activeSection === 'monitoring' && <RealtimeMonitoring />}
+
         {/* User Management Section */}
         {activeSection === 'users' && <UserManagement />}
 
