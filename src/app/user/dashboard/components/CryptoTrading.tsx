@@ -74,81 +74,15 @@ export default function CryptoTrading() {
   const [showTradeModal, setShowTradeModal] = useState(false)
   const [watchlist, setWatchlist] = useState<string[]>(['BTC', 'ETH', 'SOL'])
 
-  // Simulated real-time crypto data
-  const [cryptoData, setCryptoData] = useState<CryptoAsset[]>([
-    {
-      id: 'bitcoin',
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 67420.50,
-      change24h: 2847.30,
-      changePercent24h: 4.41,
-      marketCap: 1330000000000,
-      volume24h: 28000000000,
-      logo: '₿',
-      trending: true
-    },
-    {
-      id: 'ethereum',
-      symbol: 'ETH',
-      name: 'Ethereum',
-      price: 2650.80,
-      change24h: -89.20,
-      changePercent24h: -3.26,
-      marketCap: 318000000000,
-      volume24h: 15000000000,
-      logo: 'Ξ',
-      trending: true
-    },
-    {
-      id: 'solana',
-      symbol: 'SOL',
-      name: 'Solana',
-      price: 142.75,
-      change24h: 8.45,
-      changePercent24h: 6.29,
-      marketCap: 67000000000,
-      volume24h: 3200000000,
-      logo: '◎',
-      trending: true
-    },
-    {
-      id: 'cardano',
-      symbol: 'ADA',
-      name: 'Cardano',
-      price: 0.3456,
-      change24h: 0.0234,
-      changePercent24h: 7.27,
-      marketCap: 12000000000,
-      volume24h: 890000000,
-      logo: '₳',
-      trending: false
-    },
-    {
-      id: 'polygon',
-      symbol: 'MATIC',
-      name: 'Polygon',
-      price: 0.8234,
-      change24h: -0.0456,
-      changePercent24h: -5.24,
-      marketCap: 8100000000,
-      volume24h: 560000000,
-      logo: '⬟',
-      trending: false
-    },
-    {
-      id: 'chainlink',
-      symbol: 'LINK',
-      name: 'Chainlink',
-      price: 12.34,
-      change24h: 0.89,
-      changePercent24h: 7.78,
-      marketCap: 7300000000,
-      volume24h: 420000000,
-      logo: '🔗',
-      trending: false
-    }
-  ])
+  // Real-time crypto data from CoinGecko API
+  const [cryptoData, setCryptoData] = useState<CryptoAsset[]>([])
+  const [loading, setLoading] = useState(true)
+  const [marketOverview, setMarketOverview] = useState({
+    totalMarketCap: 0,
+    totalVolume24h: 0,
+    btcDominance: 0,
+    marketCapChange24h: 0
+  })
 
   // Portfolio data
   const portfolio: Portfolio[] = [
