@@ -48,6 +48,7 @@ import {
 } from 'lucide-react'
 import MoneyTransfer from './components/MoneyTransfer'
 import CryptoTrading from './components/CryptoTrading'
+import BillPayment from './components/BillPayment'
 
 interface UserSession {
   username: string
