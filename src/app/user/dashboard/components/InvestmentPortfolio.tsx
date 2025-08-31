@@ -76,13 +76,53 @@ const InvestmentPortfolio = () => {
     return () => clearInterval(interval)
   }, [])
 
-  // Sample portfolio data
-  const portfolioSummary: PortfolioSummary = {
-    totalValue: 25450.75,
-    totalChange24h: 1247.50,
-    totalChangePercent: 5.15,
-    profitLoss: 3247.85
+  // Calculate portfolio values using real prices
+  const calculatePortfolioValue = () => {
+    if (Object.keys(cryptoPrices).length === 0) {
+      return portfolioSummary // Return default if no prices loaded yet
+    }
+
+    let totalValue = 0
+    const updatedAssets = assets.map(asset => {
+      const coinData = Object.values(cryptoPrices).find((coin: any) => coin.symbol === asset.symbol)
+      
+      if (coinData) {
+        const currentPrice = (coinData as any).price
+        const newValue = asset.amount * currentPrice
+        const change24h = (coinData as any).changePercent24h || 0
+        
+        totalValue += newValue
+        
+        return {
+          ...asset,
+          price: currentPrice,
+          value: newValue,
+          change24h: change24h
+        }
+      }
+      
+      return asset
+    })
+
+    const totalChange24h = updatedAssets.reduce((acc, asset) => {
+      const coinData = Object.values(cryptoPrices).find((coin: any) => coin.symbol === asset.symbol)
+      if (coinData) {
+        const change = (asset.amount * asset.price * (coinData as any).changePercent24h) / 100
+        return acc + change
+      }
+      return acc
+    }, 0)
+
+    return {
+      totalValue,
+      totalChange24h,
+      totalChangePercent: totalValue > 0 ? (totalChange24h / (totalValue - totalChange24h)) * 100 : 0,
+      profitLoss: totalValue - (portfolioSummary.totalValue - portfolioSummary.profitLoss),
+      assets: updatedAssets
+    }
   }
+
+  const currentPortfolio = calculatePortfolioValue()
 
   const assets: Asset[] = [
     {
