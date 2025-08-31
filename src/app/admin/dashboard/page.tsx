@@ -150,13 +150,6 @@ export default function AdminDashboard() {
     { id: 2, type: 'success', message: 'Security patch deployed successfully', time: '2 hours ago' }
   ]
 
-  const systemAlerts = [
-    { id: 1, type: 'warning', message: 'High trading volume detected on BTC/USD pair', time: '5 min ago' },
-    { id: 2, type: 'info', message: 'Scheduled maintenance completed successfully', time: '1 hour ago' },
-    { id: 3, type: 'success', message: 'New security patch deployed', time: '2 hours ago' },
-    { id: 4, type: 'error', message: 'Failed login attempts from IP 192.168.1.100', time: '3 hours ago' }
-  ]
-
   return (
     <div className="min-h-screen professional-bg text-white">
       {/* Admin Header */}
