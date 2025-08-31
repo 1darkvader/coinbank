@@ -351,7 +351,11 @@ const InvestmentPortfolio = () => {
           <div className="lg:col-span-2 bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
             <h3 className="text-lg font-semibold text-white mb-6">Asset Allocation</h3>
             <div className="space-y-4">
-              {(currentPortfolio.assets || assets).map((asset, index) => (
+              {(currentPortfolio.assets || assets).map((asset, index) => {
+                const totalValue = currentPortfolio.totalValue || portfolioSummary.totalValue
+                const allocation = totalValue > 0 ? (asset.value / totalValue) * 100 : asset.allocation
+                
+                return (
                 <div key={asset.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center font-bold text-white">
@@ -363,16 +367,17 @@ const InvestmentPortfolio = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-white font-medium">{asset.allocation}%</p>
+                    <p className="text-white font-medium">{allocation.toFixed(1)}%</p>
                     <div className="w-24 bg-gray-800 rounded-full h-2 mt-1">
                       <div 
                         className="bg-gradient-to-r from-emerald-500 to-blue-500 h-2 rounded-full"
-                        style={{ width: `${asset.allocation}%` }}
+                        style={{ width: `${Math.min(allocation, 100)}%` }}
                       ></div>
                     </div>
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
