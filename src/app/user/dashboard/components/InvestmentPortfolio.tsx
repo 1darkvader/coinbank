@@ -124,6 +124,14 @@ const InvestmentPortfolio = () => {
 
   const currentPortfolio = calculatePortfolioValue()
 
+  // Sample portfolio data as fallback
+  const portfolioSummary: PortfolioSummary = {
+    totalValue: 25450.75,
+    totalChange24h: 1247.50,
+    totalChangePercent: 5.15,
+    profitLoss: 3247.85
+  }
+
   const assets: Asset[] = [
     {
       id: '1',
