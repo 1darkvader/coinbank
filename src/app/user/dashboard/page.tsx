@@ -12,6 +12,7 @@ import {
   ArrowUpRight,
   ArrowDownRight,
   Plus,
+  Minus,
   Lock,
   Plane,
   Settings,
@@ -44,7 +45,9 @@ import {
   Star,
   Home,
   CreditCard as CardIcon,
-  Banknote
+  Banknote,
+  Calendar,
+  Download
 } from 'lucide-react'
 // Import enhanced components
 import MoneyTransfer from './components/MoneyTransfer'
