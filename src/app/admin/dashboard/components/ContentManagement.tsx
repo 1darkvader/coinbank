@@ -528,11 +528,22 @@ const ContentManagement = () => {
                         />
                       </button>
                       
-                      <button className="p-2 hover:bg-gray-600 rounded-lg transition-colors">
+                      <button 
+                        onClick={() => alert(`Edit announcement: ${announcement.title}`)}
+                        className="p-2 hover:bg-gray-600 rounded-lg transition-colors"
+                      >
                         <Edit3 className="h-4 w-4 text-gray-400" />
                       </button>
                       
-                      <button className="p-2 hover:bg-red-600 rounded-lg transition-colors">
+                      <button 
+                        onClick={() => {
+                          if (confirm(`Delete announcement: ${announcement.title}?`)) {
+                            alert('Announcement deleted!')
+                            // Here you would actually delete the announcement
+                          }
+                        }}
+                        className="p-2 hover:bg-red-600 rounded-lg transition-colors"
+                      >
                         <Trash2 className="h-4 w-4 text-red-400" />
                       </button>
                     </div>
