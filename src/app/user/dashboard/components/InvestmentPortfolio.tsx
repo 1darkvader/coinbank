@@ -283,7 +283,7 @@ const InvestmentPortfolio = () => {
             </span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-1">
-            {isBalanceVisible ? `+$${portfolioSummary.profitLoss.toLocaleString()}` : '••••••'}
+            {isBalanceVisible ? `+$${(currentPortfolio.profitLoss || portfolioSummary.profitLoss).toLocaleString()}` : '••••••'}
           </h3>
           <p className="text-gray-400 text-sm">Total P&L</p>
         </motion.div>
