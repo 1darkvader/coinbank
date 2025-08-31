@@ -31,8 +31,16 @@ import {
   Clock,
   Calendar,
   Bookmark,
-  MessageSquare
+  MessageSquare,
+  FileText
 } from 'lucide-react'
+
+// Import admin management components
+import UserManagement from './components/UserManagement'
+import TransactionMonitoring from './components/TransactionMonitoring'
+import SystemAnalytics from './components/SystemAnalytics'
+import SecurityControls from './components/SecurityControls'
+import ContentManagement from './components/ContentManagement'
 
 export default function AdminDashboard() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('7d')
