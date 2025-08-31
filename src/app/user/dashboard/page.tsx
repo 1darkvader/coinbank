@@ -491,47 +491,30 @@ export default function UserDashboard() {
 
   const renderPaymentsSection = () => (
     <div className="space-y-8">
-      {/* Payment Options Selector */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-gradient-to-br from-emerald-600 to-cyan-600 rounded-2xl p-6">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-              <Send className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white">Money Transfers</h3>
-              <p className="text-emerald-100">Send money to anyone, anywhere</p>
-            </div>
-          </div>
+      {/* Payment Type Selection */}
+      <div className="flex bg-gray-800/50 rounded-xl p-1">
+        {[
+          { id: 'transfers', label: 'Money Transfers', icon: <Send className="h-4 w-4" /> },
+          { id: 'bills', label: 'Bill Payments', icon: <Zap className="h-4 w-4" /> }
+        ].map((tab) => (
           <button
-            onClick={() => setActiveSection('transfers')}
-            className="w-full py-3 bg-white/20 hover:bg-white/30 text-white rounded-lg font-medium transition-colors"
+            key={tab.id}
+            onClick={() => setPaymentSubSection(tab.id)}
+            className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg transition-all ${
+              paymentSubSection === tab.id
+                ? 'bg-emerald-600 text-white'
+                : 'text-gray-400 hover:text-white'
+            }`}
           >
-            Send Money
+            {tab.icon}
+            <span className="font-medium">{tab.label}</span>
           </button>
-        </div>
-
-        <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-6">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-              <Zap className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white">Bill Payments</h3>
-              <p className="text-blue-100">Pay utilities, insurance, and more</p>
-            </div>
-          </div>
-          <button
-            onClick={() => setActiveSection('bills')}
-            className="w-full py-3 bg-white/20 hover:bg-white/30 text-white rounded-lg font-medium transition-colors"
-          >
-            Pay Bills
-          </button>
-        </div>
+        ))}
       </div>
 
-      {/* Default: Money Transfer */}
-      <MoneyTransfer />
+      {/* Payment Content */}
+      {paymentSubSection === 'transfers' && <MoneyTransfer />}
+      {paymentSubSection === 'bills' && <BillPayment />}
     </div>
   )
 
