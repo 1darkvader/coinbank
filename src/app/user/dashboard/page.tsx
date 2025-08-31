@@ -448,6 +448,43 @@ export default function UserDashboard() {
 
       {/* Main Content */}
       <div className="flex-1 p-8">
+        {/* Enhanced Header with Navigation */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => window.location.href = '/'}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+            >
+              <Globe className="h-4 w-4" />
+              Home
+            </button>
+            <button
+              onClick={() => setActiveSection('accounts')}
+              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
+            >
+              <BarChart3 className="h-4 w-4" />
+              Dashboard
+            </button>
+          </div>
+          <div className="flex items-center gap-3">
+            <button className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+              <Bell className="h-5 w-5 text-gray-400" />
+            </button>
+            <button className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+              <Settings className="h-5 w-5 text-gray-400" />
+            </button>
+            <button 
+              onClick={() => {
+                localStorage.removeItem('userSession')
+                window.location.href = '/user'
+              }}
+              className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+            >
+              <ArrowUpRight className="h-4 w-4 rotate-45" />
+              Logout
+            </button>
+          </div>
+        </div>
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white capitalize">{activeSection}</h2>
