@@ -465,8 +465,9 @@ export default function AdminDashboard() {
                 </div>
               </div>
             </div>
-          </motion.div>
-        )}
+          </div>
+        </motion.div>
+      )}
 
         {/* User Management Section */}
         {activeSection === 'users' && <UserManagement />}
