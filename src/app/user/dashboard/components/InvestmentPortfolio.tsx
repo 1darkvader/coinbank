@@ -238,7 +238,7 @@ const InvestmentPortfolio = () => {
               <DollarSign className="h-5 w-5 text-emerald-400" />
             </div>
             <span className="text-emerald-400 text-sm font-medium">
-              +{portfolioSummary.totalChangePercent.toFixed(2)}%
+              +{(Math.abs(currentPortfolio.totalChangePercent) || Math.abs(portfolioSummary.totalChangePercent)).toFixed(2)}%
             </span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-1">
