@@ -278,8 +278,8 @@ export default function CryptoTrading() {
             <TrendingUp className="h-4 w-4 text-emerald-400" />
             <span className="text-gray-400 text-sm">Market Cap</span>
           </div>
-          <p className="text-2xl font-bold text-white">$2.41T</p>
-          <p className="text-emerald-400 text-sm">+5.2% 24h</p>
+          <p className="text-2xl font-bold text-white">${formatLargeNumber(marketOverview.totalMarketCap)}</p>
+          <p className="text-emerald-400 text-sm">+{marketOverview.marketCapChange24h.toFixed(1)}% 24h</p>
         </div>
         
         <div className="bg-gray-800/50 rounded-xl p-4">
@@ -287,7 +287,7 @@ export default function CryptoTrading() {
             <Activity className="h-4 w-4 text-blue-400" />
             <span className="text-gray-400 text-sm">24h Volume</span>
           </div>
-          <p className="text-2xl font-bold text-white">$89.2B</p>
+          <p className="text-2xl font-bold text-white">${formatLargeNumber(marketOverview.totalVolume24h)}</p>
           <p className="text-blue-400 text-sm">+12.8% 24h</p>
         </div>
         
@@ -296,7 +296,7 @@ export default function CryptoTrading() {
             <Target className="h-4 w-4 text-purple-400" />
             <span className="text-gray-400 text-sm">BTC Dominance</span>
           </div>
-          <p className="text-2xl font-bold text-white">55.2%</p>
+          <p className="text-2xl font-bold text-white">{marketOverview.btcDominance.toFixed(1)}%</p>
           <p className="text-purple-400 text-sm">+0.8% 24h</p>
         </div>
       </div>
