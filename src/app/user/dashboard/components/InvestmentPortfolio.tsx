@@ -351,7 +351,7 @@ const InvestmentPortfolio = () => {
           <div className="lg:col-span-2 bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-6">
             <h3 className="text-lg font-semibold text-white mb-6">Asset Allocation</h3>
             <div className="space-y-4">
-              {assets.map((asset, index) => (
+              {(currentPortfolio.assets || assets).map((asset, index) => (
                 <div key={asset.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center font-bold text-white">
