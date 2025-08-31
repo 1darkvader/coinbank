@@ -242,7 +242,7 @@ const InvestmentPortfolio = () => {
             </span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-1">
-            {isBalanceVisible ? `$${portfolioSummary.totalValue.toLocaleString()}` : '••••••'}
+            {isBalanceVisible ? `$${(currentPortfolio.totalValue || portfolioSummary.totalValue).toLocaleString()}` : '••••••'}
           </h3>
           <p className="text-gray-400 text-sm">Total Portfolio Value</p>
         </motion.div>
