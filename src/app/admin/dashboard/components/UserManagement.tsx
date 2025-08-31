@@ -512,10 +512,18 @@ const UserManagement = () => {
                       >
                         <Eye className="h-4 w-4 text-gray-400" />
                       </button>
-                      <button className="p-1.5 hover:bg-gray-700 rounded transition-colors" title="Edit User">
+                      <button 
+                        onClick={() => alert(`Editing user: ${user.name}`)}
+                        className="p-1.5 hover:bg-gray-700 rounded transition-colors" 
+                        title="Edit User"
+                      >
                         <Edit3 className="h-4 w-4 text-gray-400" />
                       </button>
-                      <button className="p-1.5 hover:bg-gray-700 rounded transition-colors" title="More Actions">
+                      <button 
+                        onClick={() => alert(`More actions for: ${user.name}`)}
+                        className="p-1.5 hover:bg-gray-700 rounded transition-colors" 
+                        title="More Actions"
+                      >
                         <MoreHorizontal className="h-4 w-4 text-gray-400" />
                       </button>
                     </div>
