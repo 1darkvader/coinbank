@@ -47,6 +47,7 @@ import {
   Banknote
 } from 'lucide-react'
 import MoneyTransfer from './components/MoneyTransfer'
+import CryptoTrading from './components/CryptoTrading'
 
 interface UserSession {
   username: string
