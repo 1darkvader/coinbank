@@ -99,6 +99,9 @@ export default function AdminDashboard() {
 
   const handleQuickAction = (action: string) => {
     switch (action) {
+      case 'home':
+        window.location.href = '/'
+        break
       case 'users':
         setActiveSection('users')
         break
