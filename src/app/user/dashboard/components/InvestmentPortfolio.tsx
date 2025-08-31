@@ -206,6 +206,15 @@ const InvestmentPortfolio = () => {
 
   return (
     <div className="space-y-6">
+      {loading && (
+        <div className="flex items-center justify-center py-8">
+          <div className="flex items-center gap-3">
+            <RefreshCw className="h-6 w-6 text-emerald-400 animate-spin" />
+            <span className="text-white">Loading portfolio data...</span>
+          </div>
+        </div>
+      )}
+      
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
