@@ -42,7 +42,7 @@ export default function AdminLogin() {
         }))
         
         // Redirect to admin dashboard
-        router.push('/admin/dashboard')
+        window.location.href = '/admin/dashboard'
       } else {
         setError('Invalid credentials. Please try again.')
       }
