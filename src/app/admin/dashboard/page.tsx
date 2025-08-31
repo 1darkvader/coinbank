@@ -257,7 +257,13 @@ export default function AdminDashboard() {
             {navigationItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => {
+                  if (item.id === 'home') {
+                    window.location.href = '/'
+                  } else {
+                    setActiveSection(item.id)
+                  }
+                }}
                 className={`flex items-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors whitespace-nowrap ${
                   activeSection === item.id
                     ? 'bg-cyan-600 text-white'
