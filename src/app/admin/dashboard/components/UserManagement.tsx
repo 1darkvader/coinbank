@@ -379,7 +379,10 @@ const UserManagement = () => {
             <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
           </button>
 
-          <button className="flex items-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => alert('Export user data feature would work here')}
+            className="flex items-center gap-2 px-4 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+          >
             <Download className="h-4 w-4" />
             Export
           </button>
