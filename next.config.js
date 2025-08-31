@@ -5,7 +5,7 @@ const nextConfig = {
   },
   allowedDevOrigins: [
     'coinbank-revamp.preview.emergentagent.com',
-    'https://crypto-dash-6.preview.emergentagent.com',
+    'https://coinbank-next-1.preview.emergentagent.com',
     // Production domains
     'coinbank-revamp.emergent.host',
     'https://coinbank-revamp.emergent.host'
