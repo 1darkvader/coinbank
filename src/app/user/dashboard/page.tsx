@@ -501,6 +501,12 @@ export default function UserDashboard() {
     </div>
   )
 
+  const renderPaymentsSection = () => (
+    <div className="space-y-8">
+      <MoneyTransfer />
+    </div>
+  )
+
   return (
     <div className="min-h-screen professional-bg text-white flex">
       {/* Sidebar */}
