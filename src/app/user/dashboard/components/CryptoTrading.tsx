@@ -269,7 +269,19 @@ export default function CryptoTrading() {
     return `$${num.toLocaleString()}`
   }
 
-  const renderMarketView = () => (
+  const renderMarketView = () => {
+    if (loading) {
+      return (
+        <div className="flex items-center justify-center py-12">
+          <div className="flex items-center gap-3">
+            <RefreshCw className="h-6 w-6 text-emerald-400 animate-spin" />
+            <span className="text-white">Loading market data...</span>
+          </div>
+        </div>
+      )
+    }
+
+    return (
     <div className="space-y-6">
       {/* Market Overview */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
