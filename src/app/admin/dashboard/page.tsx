@@ -303,162 +303,159 @@ export default function AdminDashboard() {
               ))}
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-8">
-              {/* Main Content */}
-              <div className="lg:col-span-8 space-y-8">
-            {/* Recent Transactions */}
-            <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800">
-              <div className="p-6 border-b border-gray-800">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-white">Recent Transactions</h2>
-                  <div className="flex items-center gap-3">
-                    <select
-                      value={selectedTimeframe}
-                      onChange={(e) => setSelectedTimeframe(e.target.value)}
-                      className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-1 text-white text-sm"
-                    >
-                      <option value="24h">Last 24 hours</option>
-                      <option value="7d">Last 7 days</option>
-                      <option value="30d">Last 30 days</option>
-                    </select>
-                    <button className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
-                      <Download className="h-4 w-4 text-gray-400" />
-                    </button>
+            <div className="grid lg:grid-cols-1 gap-8">
+              {/* Recent Transactions */}
+              <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800">
+                <div className="p-6 border-b border-gray-800">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-bold text-white">Recent Transactions</h2>
+                    <div className="flex items-center gap-3">
+                      <select
+                        value={selectedTimeframe}
+                        onChange={(e) => setSelectedTimeframe(e.target.value)}
+                        className="bg-gray-800 border border-gray-700 rounded-lg px-3 py-1 text-white text-sm"
+                      >
+                        <option value="24h">Last 24 hours</option>
+                        <option value="7d">Last 7 days</option>
+                        <option value="30d">Last 30 days</option>
+                      </select>
+                      <button className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+                        <Download className="h-4 w-4 text-gray-400" />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-800/50">
-                    <tr>
-                      <th className="text-left p-4 text-gray-400 font-medium">User</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Type</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Asset</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Amount</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Status</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Time</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {recentTransactions.map((transaction) => (
-                      <tr key={transaction.id} className="border-t border-gray-800 hover:bg-gray-800/30 transition-colors">
-                        <td className="p-4">
-                          <div className="text-white font-medium">{transaction.user}</div>
-                        </td>
-                        <td className="p-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            transaction.type === 'Buy' ? 'bg-emerald-500/20 text-emerald-400' :
-                            transaction.type === 'Sell' ? 'bg-red-500/20 text-red-400' :
-                            transaction.type === 'Transfer' ? 'bg-blue-500/20 text-blue-400' :
-                            'bg-purple-500/20 text-purple-400'
-                          }`}>
-                            {transaction.type}
-                          </span>
-                        </td>
-                        <td className="p-4 text-gray-300">{transaction.asset}</td>
-                        <td className="p-4 text-white font-medium">{transaction.amount}</td>
-                        <td className="p-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            transaction.status === 'Completed' ? 'bg-emerald-500/20 text-emerald-400' :
-                            transaction.status === 'Pending' ? 'bg-yellow-500/20 text-yellow-400' :
-                            'bg-red-500/20 text-red-400'
-                          }`}>
-                            {transaction.status}
-                          </span>
-                        </td>
-                        <td className="p-4 text-gray-400 text-sm">{transaction.time}</td>
-                        <td className="p-4">
-                          <button className="p-1 hover:bg-gray-700 rounded transition-colors">
-                            <MoreHorizontal className="h-4 w-4 text-gray-400" />
-                          </button>
-                        </td>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-800/50">
+                      <tr>
+                        <th className="text-left p-4 text-gray-400 font-medium">User</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Type</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Asset</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Amount</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Status</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Time</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Actions</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* User Management */}
-            <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800">
-              <div className="p-6 border-b border-gray-800">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-white">User Management</h2>
-                  <div className="flex items-center gap-3">
-                    <button className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-medium transition-colors">
-                      Add User
-                    </button>
-                    <button className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
-                      <Filter className="h-4 w-4 text-gray-400" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-800/50">
-                    <tr>
-                      <th className="text-left p-4 text-gray-400 font-medium">User</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Status</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Balance</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Joined</th>
-                      <th className="text-left p-4 text-gray-400 font-medium">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {recentUsers.map((user) => (
-                      <tr key={user.id} className="border-t border-gray-800 hover:bg-gray-800/30 transition-colors">
-                        <td className="p-4">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                              <span className="text-white font-semibold text-sm">
-                                {user.name.charAt(0)}
-                              </span>
-                            </div>
-                            <div>
-                              <div className="text-white font-medium">{user.name}</div>
-                              <div className="text-gray-400 text-sm">{user.email}</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="p-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            user.status === 'Active' ? 'bg-emerald-500/20 text-emerald-400' :
-                            user.status === 'Pending' ? 'bg-yellow-500/20 text-yellow-400' :
-                            'bg-red-500/20 text-red-400'
-                          }`}>
-                            {user.status}
-                          </span>
-                        </td>
-                        <td className="p-4 text-white font-medium">{user.balance}</td>
-                        <td className="p-4 text-gray-400 text-sm">{user.joined}</td>
-                        <td className="p-4">
-                          <div className="flex items-center gap-2">
-                            <button className="p-1 hover:bg-gray-700 rounded transition-colors" title="View User">
-                              <Eye className="h-4 w-4 text-gray-400" />
-                            </button>
-                            <button className="p-1 hover:bg-gray-700 rounded transition-colors" title="Edit User">
-                              <Settings className="h-4 w-4 text-gray-400" />
-                            </button>
-                            <button className="p-1 hover:bg-gray-700 rounded transition-colors" title="More Actions">
+                    </thead>
+                    <tbody>
+                      {recentTransactions.map((transaction) => (
+                        <tr key={transaction.id} className="border-t border-gray-800 hover:bg-gray-800/30 transition-colors">
+                          <td className="p-4">
+                            <div className="text-white font-medium">{transaction.user}</div>
+                          </td>
+                          <td className="p-4">
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              transaction.type === 'Buy' ? 'bg-emerald-500/20 text-emerald-400' :
+                              transaction.type === 'Sell' ? 'bg-red-500/20 text-red-400' :
+                              transaction.type === 'Transfer' ? 'bg-blue-500/20 text-blue-400' :
+                              'bg-purple-500/20 text-purple-400'
+                            }`}>
+                              {transaction.type}
+                            </span>
+                          </td>
+                          <td className="p-4 text-gray-300">{transaction.asset}</td>
+                          <td className="p-4 text-white font-medium">{transaction.amount}</td>
+                          <td className="p-4">
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              transaction.status === 'Completed' ? 'bg-emerald-500/20 text-emerald-400' :
+                              transaction.status === 'Pending' ? 'bg-yellow-500/20 text-yellow-400' :
+                              'bg-red-500/20 text-red-400'
+                            }`}>
+                              {transaction.status}
+                            </span>
+                          </td>
+                          <td className="p-4 text-gray-400 text-sm">{transaction.time}</td>
+                          <td className="p-4">
+                            <button className="p-1 hover:bg-gray-700 rounded transition-colors">
                               <MoreHorizontal className="h-4 w-4 text-gray-400" />
                             </button>
-                          </div>
-                        </td>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* User Management */}
+              <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800">
+                <div className="p-6 border-b border-gray-800">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-bold text-white">User Management</h2>
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={() => setActiveSection('users')}
+                        className="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg font-medium transition-colors"
+                      >
+                        Manage All Users
+                      </button>
+                      <button className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+                        <Filter className="h-4 w-4 text-gray-400" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gray-800/50">
+                      <tr>
+                        <th className="text-left p-4 text-gray-400 font-medium">User</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Status</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Balance</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Joined</th>
+                        <th className="text-left p-4 text-gray-400 font-medium">Actions</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {recentUsers.map((user) => (
+                        <tr key={user.id} className="border-t border-gray-800 hover:bg-gray-800/30 transition-colors">
+                          <td className="p-4">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <span className="text-white font-semibold text-sm">
+                                  {user.name.charAt(0)}
+                                </span>
+                              </div>
+                              <div>
+                                <div className="text-white font-medium">{user.name}</div>
+                                <div className="text-gray-400 text-sm">{user.email}</div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="p-4">
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              user.status === 'Active' ? 'bg-emerald-500/20 text-emerald-400' :
+                              user.status === 'Pending' ? 'bg-yellow-500/20 text-yellow-400' :
+                              'bg-red-500/20 text-red-400'
+                            }`}>
+                              {user.status}
+                            </span>
+                          </td>
+                          <td className="p-4 text-white font-medium">{user.balance}</td>
+                          <td className="p-4 text-gray-400 text-sm">{user.joined}</td>
+                          <td className="p-4">
+                            <div className="flex items-center gap-2">
+                              <button className="p-1 hover:bg-gray-700 rounded transition-colors" title="View User">
+                                <Eye className="h-4 w-4 text-gray-400" />
+                              </button>
+                              <button className="p-1 hover:bg-gray-700 rounded transition-colors" title="Edit User">
+                                <Settings className="h-4 w-4 text-gray-400" />
+                              </button>
+                              <button className="p-1 hover:bg-gray-700 rounded transition-colors" title="More Actions">
+                                <MoreHorizontal className="h-4 w-4 text-gray-400" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-4 space-y-6">
             {/* System Alerts */}
             <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800">
               <div className="p-6 border-b border-gray-800">
