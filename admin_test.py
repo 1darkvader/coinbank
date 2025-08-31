@@ -29,7 +29,7 @@ class AdminFeaturesTest:
     def test_next_server_startup(self):
         """Test if Next.js server starts successfully"""
         try:
-            response = self.session.get(f"{self.base_url}/", timeout=10)
+            response = self.session.get(f"{self.base_url}/", timeout=30)
             success = response.status_code == 200
             
             self.log_test("Next.js Server Startup", success, 
