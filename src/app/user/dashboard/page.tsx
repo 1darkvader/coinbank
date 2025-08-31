@@ -281,6 +281,7 @@ export default function UserDashboard() {
 
   const renderInvestSection = () => (
     <div className="space-y-8">
+      <InvestmentPortfolio />
       <CryptoTrading />
       
       {/* Original Portfolio Section */}
