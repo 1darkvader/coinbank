@@ -368,6 +368,7 @@ export default function AdminDashboard() {
                 </table>
               </div>
             </div>
+            </div>
           </div>
 
           {/* Sidebar */}
