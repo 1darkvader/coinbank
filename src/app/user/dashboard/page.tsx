@@ -45,6 +45,7 @@ import {
   Home,
   CreditCard as CardIcon,
   Banknote
+} from 'lucide-react'
 import MoneyTransfer from './components/MoneyTransfer'
 
 interface UserSession {
