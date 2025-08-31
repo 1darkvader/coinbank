@@ -314,11 +314,17 @@ const UserManagement = () => {
                     <Ban className="h-4 w-4" />
                     Ban User
                   </button>
-                  <button className="flex items-center justify-center gap-2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                  <button 
+                    onClick={() => alert(`Email sent to ${user.email}`)}
+                    className="flex items-center justify-center gap-2 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                  >
                     <Mail className="h-4 w-4" />
                     Send Email
                   </button>
-                  <button className="flex items-center justify-center gap-2 p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
+                  <button 
+                    onClick={() => alert(`2FA reset for ${user.name}`)}
+                    className="flex items-center justify-center gap-2 p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                  >
                     <Shield className="h-4 w-4" />
                     Reset 2FA
                   </button>
