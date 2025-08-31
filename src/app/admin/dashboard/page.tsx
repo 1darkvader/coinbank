@@ -88,6 +88,36 @@ export default function AdminDashboard() {
     { id: 'content', label: 'Content Management', icon: <FileText className="h-5 w-5" /> }
   ]
 
+  const handleLogout = () => {
+    // Clear admin session
+    localStorage.removeItem('adminAuth')
+    // Redirect to admin login
+    window.location.href = '/admin'
+  }
+
+  const handleQuickAction = (action: string) => {
+    switch (action) {
+      case 'users':
+        setActiveSection('users')
+        break
+      case 'analytics':
+        setActiveSection('analytics')
+        break
+      case 'security':
+        setActiveSection('security')
+        break
+      case 'settings':
+        setActiveSection('content')
+        break
+      case 'support':
+        // Could redirect to support tickets or open a modal
+        alert('Support tickets feature coming soon!')
+        break
+      default:
+        break
+    }
+  }
+
   const recentUsers = [
     { id: 1, name: 'Sarah Johnson', email: 'sarah@example.com', status: 'Active', joined: '2 hours ago', balance: '$45,230' },
     { id: 2, name: 'Mike Chen', email: 'mike@example.com', status: 'Active', joined: '5 hours ago', balance: '$23,100' },
