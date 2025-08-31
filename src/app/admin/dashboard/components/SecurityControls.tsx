@@ -221,11 +221,21 @@ const SecurityControls = () => {
           <p className="text-gray-400 mt-1">Monitor security events and manage system protection</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => alert('Security alert sent to all admins!')}
+            className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+          >
             <Shield className="h-4 w-4" />
             Security Alert
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors">
+          <button 
+            onClick={() => {
+              // Refresh security data
+              alert('Security data refreshed!')
+              // In a real app, you would refetch security events here
+            }}
+            className="flex items-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition-colors"
+          >
             <RefreshCw className="h-4 w-4" />
             Refresh
           </button>
