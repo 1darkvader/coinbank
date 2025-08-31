@@ -197,7 +197,7 @@ export default function AdminDashboard() {
                 </button>
               </div>
               
-              <div className="flex items-center gap-3 pl-4 border-l border-gray-700 relative">
+              <div className="flex items-center gap-3 pl-4 border-l border-gray-700 relative" id="profile-dropdown">
                 <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center">
                   <span className="text-white font-semibold text-sm">A</span>
                 </div>
