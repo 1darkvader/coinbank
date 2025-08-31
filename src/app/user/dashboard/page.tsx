@@ -572,8 +572,11 @@ export default function UserDashboard() {
           {activeSection === 'invest' && renderInvestSection()}
           {activeSection === 'card' && renderCardSection()}
           
-          {/* Placeholder sections for other features */}
-          {(activeSection === 'payments' || activeSection === 'rewards' || activeSection === 'community') && (
+  const renderPaymentsSection = () => (
+    <div className="space-y-8">
+      <MoneyTransfer />
+    </div>
+  )
             <div className="bg-gray-900/50 backdrop-blur rounded-2xl border border-gray-800 p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 {activeSection === 'payments' && <Zap className="h-8 w-8 text-white" />}
